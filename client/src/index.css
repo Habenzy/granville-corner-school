@@ -1,0 +1,186 @@
+body {
+  background-color: #faebd7;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  font-family: baskerville
+}
+
+p{
+  font-family: Arial, Helvetica, sans-serif
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.foot-bar {
+  background-color: #f2c993;
+  min-height: 75px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head-bar {
+  background-color: #f2c993;
+  height: 75px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head-bar h1 {
+  color: #003d00;
+  text-align: center;
+}
+
+.nav-button {
+  color: white;
+  height: 47px;
+  width: 87px;
+  border-radius: 15px;
+  background-color: #006600;
+  border: 2px solid #003d00;
+}
+
+.nav-button:hover {
+  opacity: .5;
+}
+
+#home-body {
+  display: grid;
+  grid-template-columns:5fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr
+}
+
+#home-body h1 {
+  width: 100%;
+  text-align: center;
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+#home-body img {
+  max-width: 700px;
+  border: 1px solid grey;
+  justify-self: center;
+  grid-row: 2;
+  grid-column: 1;
+  margin: 10px 0 10px 0
+}
+
+#mission-statement {
+  border: 1px solid grey;
+  justify-self: center;
+  text-align: center;
+  grid-row: 2;
+  grid-column: 2;
+  margin: 10px 15% 10px -30%;
+  padding: 10px;
+}
+
+#event-quote {
+  width: 700px;
+  border: 1px solid grey;
+  justify-self: center;
+  text-align: center;
+  grid-row: 3;
+  grid-column: 1 / 2;
+  margin: 20px;
+}
+
+#photo-gallery {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.thumb {
+  border: 1px solid grey;
+  height: 220px;
+  width: 220px;
+}
+
+.thumb:hover {
+  opacity: .5;
+}
+
+.corner-school-desc {
+  margin: 20px;
+}
+
+.corner-school-desc h2{
+  text-align: center;
+}
+
+
+@media screen and (max-width: 736px) {
+  
+  .foot-bar {
+    background-color: #f2c993;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+  }
+  
+  .head-bar {
+    background-color: #f2c993;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+  }
+  
+  #home-body {
+    display: inline-block;
+  }
+  
+  #home-body h1 {
+    display: inline-block;
+  }
+  
+  #home-body img {
+    max-width: 320px;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  #mission-statement {
+    display: inline-block;
+    align-self: center;
+    justify-self: center;
+    max-width: 320px;
+    margin: 10px;
+    padding: 0;
+  }
+  
+  #event-quote {
+    display: inline-block;
+    width: 320px;
+    margin: 10px;
+  }
+
+  #photo-gallery {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .thumb{
+    width: 100%;
+    height: auto;
+  }
+}
