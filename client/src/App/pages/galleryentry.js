@@ -8,16 +8,16 @@ class GalleryEntry extends React.Component {
     return(
       <div id="gallery-portal">
         <Header />
-        <div id="gallery-nav">
-          <Link to={'./history-gallery'}>
-            <div className="photo-nav-button">Historical Photos</div>
-          </Link>
-          <Link to={'./event-gallery'}>
-            <div className="photo-nav-button">Event Photos</div>
-          </Link>
-          <Link to={'./restoration-gallery'}>
-            <div className="photo-nav-button">Restoration Photos</div>
-          </Link>
+        <div id="gallery-nav">          
+          <div className="photo-nav-button">
+            <Link to={'./history-gallery'}><p>Historical Photos</p><img src="./images/100.jpeg" alt="historical Main Street Granville"/></Link>
+          </div>        
+          <div className="photo-nav-button">
+            <Link to={'./event-gallery'}><p>Event Photos</p><img src=" " alt="" /></Link>
+          </div>
+          <div className="photo-nav-button">
+            <Link to={'./restoration-gallery'}><p>Restoration Photos</p><img src="./images/img-7376.jpg" alt="work day at the csrc" /></Link>
+          </div>
         </div>
         <Footer />
       </div>

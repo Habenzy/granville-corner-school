@@ -15,7 +15,7 @@ class EventGallery extends React.Component {
     for (let src of imageSrcs) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <a href=${src}><img class="thumb" src=${src} alt=""/></a>
+          <a href=${"./images/events/" + src}><img class="thumb" src=${"./images/events/" + src} alt=""/></a>
         </div>`
       )
     }

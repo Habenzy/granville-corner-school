@@ -8,13 +8,13 @@ class HistoryGallery extends React.Component {
 
    componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
-    let imageSrcs = ['./images/historic/46.jpeg','./images/historic/49.jpeg','./images/historic/50.jpeg','./images/historic/61.jpeg','./images/historic/74.jpeg','./images/historic/76.jpeg','./images/historic/77.jpeg','./images/historic/79.jpeg','./images/historic/86.jpeg','./images/historic/97.jpeg','./images/historic/98.jpeg','./images/historic/100.jpeg','./images/historic/104.jpeg','./images/historic/114.jpeg','./images/historic/115.jpeg','./images/historic/117.jpeg','./images/historic/119.jpeg','./images/historic/121.jpeg','./images/historic/128.jpeg','./images/historic/131.jpeg','./images/historic/132.jpeg','./images/historic/133.jpeg','./images/historic/135.jpeg','./images/historic/136.jpeg','./images/historic/137.jpeg','./images/historic/139.jpeg','./images/historic/140.jpeg','./images/historic/145.jpeg','./images/historic/166.jpeg','./images/historic/182.jpeg','./images/historic/188.jpeg','./images/historic/193.jpeg','./images/historic/194.jpeg','./images/historic/196.jpg','./images/historic/207.jpeg','./images/historic/235.jpeg','./images/historic/246.jpeg','./images/historic/296.jpeg'];
+    let imageSrcs = ['46.jpeg','49.jpeg','50.jpeg','61.jpeg','74.jpeg','76.jpeg','77.jpeg','79.jpeg','86.jpeg','97.jpeg','98.jpeg','100.jpeg','104.jpeg','114.jpeg','115.jpeg','117.jpeg','119.jpeg','121.jpeg','128.jpeg','131.jpeg','132.jpeg','133.jpeg','135.jpeg','136.jpeg','137.jpeg','139.jpeg','140.jpeg','145.jpeg','166.jpeg','182.jpeg','188.jpeg','193.jpeg','194.jpeg','196.jpeg','207.jpeg','235.jpeg','246.jpeg','296.jpeg'];
     //a better way to do this would be to iterate over images dir and auto generate imgSrcs array
 
     for (let src of imageSrcs) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <a href=${src}><img class="thumb" src=${src} alt=""/></a>
+          <a href=${"/images/historic/" + src}><img class="thumb" src=${"/images/historic/" + src} alt=""/></a>
         </div>`
       )
     }
