@@ -144,6 +144,16 @@ code {
   opacity: .5;
 }
 
+#history-image {
+  float: left;
+  width: 350px;
+}
+
+#csrc-img {
+  float: right;
+  width: 350px
+}
+
 .corner-school-desc {
   margin: 20px;
 }
@@ -217,5 +227,17 @@ code {
   .thumb{
     width: 100%;
     height: auto;
+  }
+
+  #history-image {
+    display: inline-block;
+    float: none;
+    width: 100%;
+  }
+  
+  #csrc-img {
+    display: inline-block;
+    float: none;
+    width: 100%;
   }
 }
