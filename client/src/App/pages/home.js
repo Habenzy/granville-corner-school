@@ -6,7 +6,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quotes: [`There was no Route 100 until 1912 up through the Gulf. The main route was Puddledock.  -Norm Arsenault`, `We were kin of free spirits, so we decided to move here and see how it was, have a garden. And here we are 43 years later.  -Nancy Demers`, `There was a tree that was snowing, but there wasn't snow anywhere else. It felt like a blessing.  -Michael Egan`, `No traffic lights, no stop signs, no cops, no buses, no trains. I just kind of fell in love with it. Living up in the hollows, up on the hills is an adventure.  -Jamie Service`, `Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz Branchofsky`]
+      quotes: [`There was no Route 100 until 1912 up through the Gulf. The main route was Puddledock.  -Norm A.`, `We were kind of free spirits, so we decided to move here and see how it was, have a garden. And here we are 43 years later.  -Nancy D.`, `There was a tree that was snowing, but there wasn't snow anywhere else. It felt like a blessing.  -Michael E.`, `No traffic lights, no stop signs, no cops, no buses, no trains. I just kind of fell in love with it. Living up in the hollows, up on the hills is an adventure.  -Jamie S.`, `Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B.`]
     }
   }
 

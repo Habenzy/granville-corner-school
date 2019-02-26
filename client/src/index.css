@@ -77,6 +77,8 @@ code {
 #mission-statement {
   position: absolute;
   text-align: center;
+  background-color: white;
+  opacity: .7;
   top: 10%;
   right: 5%;
   width: 25%;
@@ -93,6 +95,7 @@ code {
   text-align: center;
   height: auto;
   margin: 7%;
+  margin-top: 10px;
   border-radius: 7px;
 }
 
@@ -115,10 +118,7 @@ code {
 }
 
 .photo-nav-button p {
-  position: absolute;
-  top: 70px;
-  left: 70px;
-  text-emphasis: none;
+  text-align: center;
   color: rgb(66, 66, 66)
 }
 
@@ -144,14 +144,59 @@ code {
   opacity: .5;
 }
 
+/*modal image shit ripped from teh interwebs*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 30px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #history-image {
   float: left;
-  width: 350px;
+  width: 500px;
 }
 
 #csrc-img {
   float: right;
-  width: 350px
+  width: 500px
 }
 
 .corner-school-desc {
@@ -204,6 +249,8 @@ code {
     display: inline-block;
     align-self: center;
     justify-self: center;
+    background-color: white;
+    opacity: .7;
     width: 320px;
     margin: 10px;
     padding: 0;

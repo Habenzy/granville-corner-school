@@ -8,13 +8,13 @@ class RestorationGallery extends React.Component {
 
    componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
-    let imageSrcs = ['Corner-School-Float-photo.jpg', 'Corner-School-looking-South.jpg', 'Eleanor-and-Kate.jpg', 'Eleanor.jpg', 'Granville_91207-039.jpg', 'Granville_91207-044.jpg', 'Granville_91207-014.jpg', 'IMG_1757.jpg', 'IMG_1758.jpg', 'IMG_1760.jpg', 'IMG_7376.jpg'];
+    let imageNames = ['Corner-School-Float-photo', 'Corner-School-looking-South', 'Eleanor-and-Kate', 'Eleanor', 'Granville_91207-039', 'Granville_91207-044', 'Granville_91207-014', 'IMG_1757', 'IMG_1758', 'IMG_1760', 'IMG_7376'];
     //a better way to do this would be to iterate over images dir and auto generate imgSrcs array
 
-    for (let src of imageSrcs) {
+    for (let name of imageNames) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <a href=${"./images/restoration/" + src}><img class="thumb" src=${"./images/restoration/" + src} alt=""/></a>
+          <a href=${"./images/restoration/" + name + ".jpg"}><img class="thumb" src=${"./images/restoration/" + name + ".jpg"} alt=""/></a>
         </div>`
       )
     }

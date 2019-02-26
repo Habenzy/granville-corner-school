@@ -5,23 +5,57 @@ import Header from './header';
 
 class HistoryGallery extends React.Component {
 
+  attachModal(element) {
+    const img = document.getElementById(element);
+    const modal = document.getElementById("modal-" + element);
+    let span = document.getElementsByClassName("close")[0]
 
-   componentDidMount() {
+    img.onclick = function () {
+      modal.style.display = "block";
+    };
+
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+  }
+
+  componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
-    let imageSrcs = ['46.jpeg','49.jpeg','50.jpeg','61.jpeg','74.jpeg','76.jpeg','77.jpeg','79.jpeg','86.jpeg','97.jpeg','98.jpeg','100.jpeg','104.jpeg','114.jpeg','115.jpeg','117.jpeg','119.jpeg','121.jpeg','128.jpeg','131.jpeg','132.jpeg','133.jpeg','135.jpeg','136.jpeg','137.jpeg','139.jpeg','140.jpeg','145.jpeg','166.jpeg','182.jpeg','188.jpeg','193.jpeg','194.jpeg','196.jpeg','207.jpeg','235.jpeg','246.jpeg','296.jpeg'];
+    let imageNames = ['46', '49', '50', '61', '74', '76', '77', '79', '86', '97', '98', '100', '104', '114', '115', '117', '119', '121', '128', '131', '132', '133', '135', '136', '137', '139', '140', '145', '166', '182', '188', '193', '194', '196', '207', '235', '246', '296'];
+    let thumbElements = [];
+    let modalElements = [];
+    let closeElements = [];
     //a better way to do this would be to iterate over images dir and auto generate imgSrcs array
 
-    for (let src of imageSrcs) {
+    for (let name of imageNames) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <a href=${"/images/historic/" + src}><img class="thumb" src=${"/images/historic/" + src} alt=""/></a>
+          <img class="thumb" id=${name} src=${"/images/historic/" + name + ".jpeg"} alt="" />
+        </div>
+        <div id=${"modal-" + name} class="modal">
+          <span class="close" id=${"close-" + name}>&times;</span>
+          <img class="modal-content" id=${"img-" + name} src=${"/images/historic/" + name + ".jpeg"}>
         </div>`
-      )
+      );
+      thumbElements.push(document.getElementById(name));
+      modalElements.push(document.getElementById("modal-" + name));
+      closeElements.push(document.getElementById("close-" + name));
+    };
+
+    for (let img of thumbElements) {
+      let modal = document.getElementById("modal-" + img.id);
+      console.log(modal);
+      img.onclick = function () {
+        modal.style.display = "block";
+      };
+      document.getElementById("close-" + img.id).onclick = function () {
+        modal.style.display = "none"
+      }
     }
   }
 
   render() {
-    return(
+    return (
       <div>
         <Header />
         <div id="photo-gallery"></div>
