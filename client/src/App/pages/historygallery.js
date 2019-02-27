@@ -23,9 +23,6 @@ class HistoryGallery extends React.Component {
     const gallery = document.getElementById("photo-gallery");
     let imageNames = ['46', '49', '50', '61', '74', '76', '77', '79', '86', '97', '98', '100', '104', '114', '115', '117', '119', '121', '128', '131', '132', '133', '135', '136', '137', '139', '140', '145', '166', '182', '188', '193', '194', '196', '207', '235', '246', '296'];
     let thumbElements = [];
-    let modalElements = [];
-    let closeElements = [];
-    //a better way to do this would be to iterate over images dir and auto generate imgSrcs array
 
     for (let name of imageNames) {
       gallery.innerHTML += (
@@ -38,20 +35,18 @@ class HistoryGallery extends React.Component {
         </div>`
       );
       thumbElements.push(document.getElementById(name));
-      modalElements.push(document.getElementById("modal-" + name));
-      closeElements.push(document.getElementById("close-" + name));
     };
 
-    for (let img of thumbElements) {
+    thumbElements.forEach( function(img){
       let modal = document.getElementById("modal-" + img.id);
       console.log(modal);
-      img.onclick = function () {
+      document.getElementById(img.id).onclick = function () {
         modal.style.display = "block";
       };
       document.getElementById("close-" + img.id).onclick = function () {
         modal.style.display = "none"
       }
-    }
+    })
   }
 
   render() {
