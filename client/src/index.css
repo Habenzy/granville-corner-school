@@ -36,6 +36,7 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 4px solid #e94b02
 }
 
 #head {
@@ -91,11 +92,12 @@ code {
 
 #event-quote {
   max-width: 700px;
-  border: 1px solid grey;
+  border: 2px solid #e94b02;
   justify-self: center;
   text-align: center;
   height: auto;
   margin: 7%;
+  padding: 10px;
   margin-top: 10px;
   border-radius: 7px;
 }
@@ -194,11 +196,13 @@ code {
 #history-image {
   float: left;
   width: 500px;
+  margin: 10px;
 }
 
 #csrc-img {
   float: right;
-  width: 500px
+  width: 500px;
+  margin: 10px;
 }
 
 .corner-school-desc {

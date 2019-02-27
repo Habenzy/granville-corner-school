@@ -17,12 +17,17 @@ class About extends React.Component {
         <div className="corner-school-desc">
           <b>The History of the CSRC</b>
           <br />
-          <img id="csrc-img" src=".\images\restoration\Corner-School-Float-photo.jpg" alt="" />
+          <img id="csrc-img" src=".\images\events\Corner-School-Float-photo.jpg" alt="" />
           <p>
           Nearly one hundred and fifty years ago, Granville was experiencing the biggest economic boom in its history. It was the largest of the three White River Valley towns - Rochester, Hancock and Granville, Vermont - and the center of a vibrant wood products industry as well as several hardworking hill farms. The population boom spurred the construction of ten one-room schoolhouses which proudly served our community for generations. Today only two of those buildings still have the potential of public use. One, the Village School, is a beautiful example of a historic structure repurposed for present use as the Town Office. The other, the Corner School on Post Office Hill, holds the promise of a similar transformation.  In 2010, a dedicated group of Granville citizens bought the building from the Town and formed the Corner School Resource Center of Granville (CSRC). Our mission is to restore the old structure for a dynamic new purpose: to provide information on the area’s natural and cultural history as well as library, educational and recreational resources, and a meeting space equipped with high-speed internet available for townspeople and visitors alike.  Collecting images and oral histories from the residents of the White River Valley is well underway. Our efforts to renovate the building are ongoing. Since 2012, the CSRC Board has made numerous improvements including removal of the interior contents, building stabilization, reparation of broken and missing window panes, and painting of the roof and much of the exterior, while continuing to seek funding for a major renovation. In the spring and summer of 2019, we plan to continue this work with the removal and replacement of the floor, the installation of flood vents, and wiring and electricity for wi-fi. 
           <br />
           <br />
+          <hr />
+          {
+            //change to list
+          }
           <b>The Board of Directors:</b>
+          <br />
           <br />
           Ronald Millard, President
           <br />
@@ -36,6 +41,7 @@ class About extends React.Component {
           <br />
           Roger Stauss, Director
           </p>
+          
         </div>
         <Footer />
       </div>
