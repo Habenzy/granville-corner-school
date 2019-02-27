@@ -82,6 +82,7 @@ code {
   top: 10%;
   right: 5%;
   width: 25%;
+  border-radius: 5px;
 }
 
 #cover img {
@@ -164,7 +165,7 @@ code {
 .modal-content {
   margin: auto;
   display: block;
-  width: 80%;
+  width: auto;
 }
 
 @keyframes zoom {
