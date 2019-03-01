@@ -48,12 +48,14 @@ code {
 
 #head h1 {
   margin: 0;
+  font-size: 48px;
 }
 
 .nav-button {
   color: white;
-  height: 47px;
-  width: 87px;
+  font-size: 20px;
+  height: 60px;
+  width: 100px;
   border-radius: 15px;
   background-color: #3d644a;
   border: 2px solid #253d25;

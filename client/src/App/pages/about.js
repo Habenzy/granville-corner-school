@@ -27,21 +27,15 @@ class About extends React.Component {
             //change to list
           }
           <b>The Board of Directors:</b>
-          <br />
-          <br />
-          Ronald Millard, President
-          <br />
-          Diane Eramo, Treasurer
-          <br />
-          Kate Youngdahl-Stauss, Secretary
-          <br />
-          Amy Carst, Director
-          <br />
-          Michael Eramo, Director
-          <br />
-          Roger Stauss, Director
           </p>
-          
+          <ul id="bod-list">
+            <li>Ronald Millard, President</li>
+            <li>Diane Eramo, Treasurer</li>
+            <li>Kate Youngdahl-Stauss, Secretary</li>
+            <li>Amy Carst, Director</li>
+            <li>Michael Eramo, Director</li>
+            <li>Roger Stauss, Director</li>
+          </ul>
         </div>
         <Footer />
       </div>
