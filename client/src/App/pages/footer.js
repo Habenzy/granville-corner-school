@@ -15,7 +15,7 @@ class Footer extends React.Component {
       return(
         <div className='foot-bar'>
           <button id='contact'>Contact Us</button>
-          <div>info at vermontcornerschool.org</div>
+          <div>72 Post Office Rd. Granville, VT 05747</div>
           <div><a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/">FaceBook</a></div>
           <div>Donate</div>
         </div>
