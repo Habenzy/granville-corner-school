@@ -5,20 +5,6 @@ import Header from './header';
 
 class HistoryGallery extends React.Component {
 
-  attachModal(element) {
-    const img = document.getElementById(element);
-    const modal = document.getElementById("modal-" + element);
-    let span = document.getElementsByClassName("close")[0]
-
-    img.onclick = function () {
-      modal.style.display = "block";
-    };
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-  }
-
   componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
     let imageNames = ['46', '49', '50', '61', '74', '76', '77', '79', '86', '97', '98', '100', '104', '114', '115', '117', '119', '121', '128', '131', '132', '133', '135', '136', '137', '139', '140', '145', '166', '182', '188', '193', '194', '196', '207', '235', '246', '296'];
