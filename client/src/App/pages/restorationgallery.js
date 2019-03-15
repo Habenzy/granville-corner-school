@@ -8,7 +8,7 @@ class RestorationGallery extends React.Component {
 
    componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
-    let imageNames = ['Corner-School-looking-South', 'Eleanor-and-Kate', 'Eleanor', 'Granville_91207-039', 'Granville_91207-044', 'Granville_91207-014', 'IMG_1757', 'IMG_1758', 'IMG_1760', 'IMG_7376'];
+    let imageNames = ['Corner-School-looking-South', 'Eleanor-and-Kate', 'Eleanor', 'Granville_91207-039', 'Granville_91207-044', 'Granville_91207-014', 'IMG_1757', 'IMG_1758', 'IMG_1760', 'IMG_7376', 'image1', 'image2', 'image3', 'image4', 'IMG_9462', 'IMG_9463', 'IMG_9464', 'IMG_9465', 'IMG_9467', 'IMG_9461'];
     let thumbElements =[];
     
     for (let name of imageNames) {
