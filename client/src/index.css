@@ -93,7 +93,7 @@ code {
 }
 
 #event-quote {
-  max-width: 700px;
+  width: 700px;
   border: 2px solid #e94b02;
   justify-self: center;
   text-align: center;
