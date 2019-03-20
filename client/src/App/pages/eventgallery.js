@@ -10,9 +10,9 @@ class EventGallery extends React.Component {
    componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
     let images = [
-      {name: 'Corner-School-Float-photo', blurb:''},
+      {name: 'Corner-School-Float-photo', blurb:'1 2 1 2 this is just a test'},
     ];
-    
+
     let thumbElements = []
 
     
@@ -24,7 +24,7 @@ class EventGallery extends React.Component {
         <div id=${"modal-" + image.name} class="modal">
           <span class="close" id=${"close-" + image.name}>&times;</span>
           <img class="modal-content" id=${"img-" + image.name} src=${"/images/events/" + image.name + ".jpg"}>
-          <div class="description">${image.blurb}</div>
+          <div class="description"><br />${image.blurb}</div>
         </div>`
       );
       thumbElements.push(document.getElementById(image.name));
