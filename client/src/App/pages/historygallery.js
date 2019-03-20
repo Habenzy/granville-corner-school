@@ -7,23 +7,63 @@ class HistoryGallery extends React.Component {
 
   componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
-    let imageNames = ['46', '49', '50', '61', '74', '76', '77', '79', '86', '97', '98', '100', '104', '114', '115', '117', '119', '121', '128', '131', '132', '133', '135', '136', '137', '139', '140', '145', '166', '182', '188', '193', '194', '196', '207', '235', '246', '296'];
+    let images = [
+      { name: '46', blurb: '' },
+      { name: '49', blurb: '' },
+      { name: '50', blurb: '' },
+      { name: '61', blurb: '' },
+      { name: '74', blurb: '' },
+      { name: '76', blurb: '' },
+      { name: '77', blurb: '' },
+      { name: '79', blurb: '' },
+      { name: '86', blurb: '' },
+      { name: '97', blurb: '' },
+      { name: '98', blurb: '' },
+      { name: '100', blurb: '' },
+      { name: '104', blurb: '' },
+      { name: '114', blurb: '' },
+      { name: '115', blurb: '' },
+      { name: '117', blurb: '' },
+      { name: '119', blurb: '' },
+      { name: '121', blurb: '' },
+      { name: '128', blurb: '' },
+      { name: '131', blurb: '' },
+      { name: '132', blurb: '' },
+      { name: '133', blurb: '' },
+      { name: '135', blurb: '' },
+      { name: '136', blurb: '' },
+      { name: '137', blurb: '' },
+      { name: '139', blurb: '' },
+      { name: '140', blurb: '' },
+      { name: '145', blurb: '' },
+      { name: '166', blurb: '' },
+      { name: '182', blurb: '' },
+      { name: '188', blurb: '' },
+      { name: '193', blurb: '' },
+      { name: '194', blurb: '' },
+      { name: '196', blurb: '' },
+      { name: '207', blurb: '' },
+      { name: '235', blurb: '' },
+      { name: '246', blurb: '' },
+      { name: '296', blurb: '' }
+    ];
     let thumbElements = [];
 
-    for (let name of imageNames) {
+    for (let image of images) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <img class="thumb" id=${name} src=${"/images/historic/" + name + ".jpeg"} alt="" />
+          <img class="thumb" id=${image.name} src=${"/images/events/" + image.name + ".jpg"} alt=${image.blurb} />
         </div>
-        <div id=${"modal-" + name} class="modal">
-          <span class="close" id=${"close-" + name}>&times;</span>
-          <img class="modal-content" id=${"img-" + name} src=${"/images/historic/" + name + ".jpeg"}>
+        <div id=${"modal-" + image.name} class="modal">
+          <span class="close" id=${"close-" + image.name}>&times;</span>
+          <img class="modal-content" id=${"img-" + image.name} src=${"/images/events/" + image.name + ".jpg"}>
+          <div class="description">${image.blurb}</div>
         </div>`
       );
-      thumbElements.push(document.getElementById(name));
+      thumbElements.push(document.getElementById(image.name));
     };
 
-    thumbElements.forEach( function(img){
+    thumbElements.forEach(function (img) {
       let modal = document.getElementById("modal-" + img.id);
       console.log(modal);
       document.getElementById(img.id).onclick = function () {
