@@ -22,7 +22,7 @@ class Footer extends React.Component {
           <input type="hidden" name="business" value="WMV8PDEYN8D4E" />
           <input type="hidden" name="currency_code" value="USD" />
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="2" height="2" />
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="4" height="4" />
         </form></div>
       </div>
     )

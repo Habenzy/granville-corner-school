@@ -13,7 +13,7 @@ class GalleryEntry extends React.Component {
             <Link to={'./history-gallery'}><p>Historical Photos</p><img src="./images/100.jpeg" alt="historical Main Street Granville"/></Link>
           </div>        
           <div className="photo-nav-button">
-            <Link to={'./event-gallery'}><p>Event Photos</p><img src="./images/restoration/eleanor-and-kate.jpg" alt="" /></Link>
+            <Link to={'./event-gallery'}><p>Event Photos</p><img src="./images/events/Corner-School-Float-photo.jpg" alt="float from the Warren 4th of July parade" /></Link>
           </div>
           <div className="photo-nav-button">
             <Link to={'./restoration-gallery'}><p>Restoration Photos</p><img src="./images/img-7376.jpg" alt="work day at the csrc" /></Link>

@@ -10,7 +10,7 @@ class EventGallery extends React.Component {
    componentDidMount() {
     const gallery = document.getElementById("photo-gallery");
     let images = [
-      {name: 'Corner-School-Float-photo', blurb:'1 2 1 2 this is just a test'},
+      {name: 'Corner-School-Float-photo', blurb:'1 2 1 2 this is just a test', ext: '.jpg'},
     ];
 
     let thumbElements = []
@@ -19,11 +19,11 @@ class EventGallery extends React.Component {
     for (let image of images) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <img class="thumb" id=${image.name} src=${"/images/events/" + image.name + ".jpg"} alt=${image.blurb} />
+          <img class="thumb" id=${image.name} src=${"/images/events/" + image.name + '/'+ image.ext} alt=${image.blurb} />
         </div>
         <div id=${"modal-" + image.name} class="modal">
           <span class="close" id=${"close-" + image.name}>&times;</span>
-          <img class="modal-content" id=${"img-" + image.name} src=${"/images/events/" + image.name + ".jpg"}>
+          <img class="modal-content" id=${"img-" + image.name} src=${"/images/events/" + image.name + '/'+ image.ext}>
           <div class="description"><br />${image.blurb}</div>
         </div>`
       );

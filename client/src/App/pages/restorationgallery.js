@@ -35,11 +35,11 @@ class RestorationGallery extends React.Component {
     for (let image of images) {
       gallery.innerHTML += (
         `<div class="image-thumb">
-          <img class="thumb" id=${image.name} src=${"/images/restoration/" + image.name + image.ext} alt=${image.blurb} />
+          <img class="thumb" id=${image.name} src=${"/images/restoration/" + image.name +'/'+ image.ext} alt=${image.blurb} />
         </div>
         <div id=${"modal-" + image.name} class="modal">
           <span class="close" id=${"close-" + image.name}>&times;</span>
-          <img class="modal-content" id=${"img-" + image.name} src=${"/images/restoration/" + image.name + image.ext}>
+          <img class="modal-content" id=${"img-" + image.name} src=${"/images/restoration/" + image.name +'/'+ image.ext}>
           <div class="description"><br />${image.blurb}</div>
         </div>`
       );

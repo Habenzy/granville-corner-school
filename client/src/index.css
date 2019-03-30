@@ -10,7 +10,7 @@ body {
 }
 
 .yellow{
-  color: yellow;
+  color: #e98502;
 }
 
 *{
@@ -212,13 +212,13 @@ code {
 
 #history-image {
   float: left;
-  width: 500px;
+  width: 700px;
   margin: 10px;
 }
 
 #csrc-img {
   float: right;
-  width: 500px;
+  width: 700px;
   margin: 10px;
 }
 
