@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.yellow{
+  color: yellow;
+}
+
 *{
   font-family: baskerville
 }
@@ -58,7 +62,10 @@ code {
   width: 100px;
   border-radius: 15px;
   background-color: #3d644a;
-  border: 2px solid #253d25;
+  border-right: 2px solid #253d25;
+  border-bottom: 2px solid #253d25;
+  border-left: 2px solid #8fbe8f;
+  border-top: 2px solid #8fbe8f;
 }
 
 .nav-button:hover {
