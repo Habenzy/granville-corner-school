@@ -13,6 +13,10 @@ body {
   color: #e98502;
 }
 
+.indent{
+  text-indent: 30px;
+}
+
 *{
   font-family: baskerville
 }
@@ -32,6 +36,37 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+#contact {
+  height:65px;
+  width: 85px;
+  border-top: white 2px solid;
+  border-left: white 2px solid;
+}
+
+#contact:hover{
+  cursor:pointer;
+}
+
+#facebook-button {
+  height: 61px;
+  width: 81px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color:#3134bb;
+  border-bottom: #161757 2px solid;
+  border-right: #161757 2px solid;
+  border-top: #a4a6fd 2px solid;
+  border-left: #a4a6fd 2px solid;
+  color:white;
+  text-decoration: none;
+  text-justify: center;
+}
+
+#facebook-button:hover{
+  cursor: pointer;
 }
 
 .head-bar {
@@ -212,13 +247,13 @@ code {
 
 #history-image {
   float: left;
-  width: 700px;
+  width: 600px;
   margin: 10px;
 }
 
 #csrc-img {
   float: right;
-  width: 700px;
+  width: 600px;
   margin: 10px;
 }
 
