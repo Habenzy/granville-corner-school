@@ -13,6 +13,7 @@ class Audio extends React.Component {
       <div>
         <Header />
         <div id="audio-lib">Audio Files will be served here...</div>
+        If you have a story of life in rural Vermont, please contact us! We're adding new stories all the time! 
         <Footer />
       </div>
     )
