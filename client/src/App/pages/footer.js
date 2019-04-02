@@ -14,9 +14,9 @@ class Footer extends React.Component {
   render() {
     return (
       <div className='foot-bar'>
-        <button id='contact'>Contact Us</button>
+        <button id='contact' className="nav-button">Contact Us</button>
         <div>75 Post Office Rd. Granville, VT 05747</div>
-        <a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/"><div id="facebook-button">FaceBook</div></a>
+        <a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/"><div id="facebook-button"><img src="./images/Facebook-Button.png" alt="facebook" id="fb-img"/></div></a>
         <div><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_donations" />
           <input type="hidden" name="business" value="WMV8PDEYN8D4E" />

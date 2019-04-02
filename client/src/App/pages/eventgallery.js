@@ -11,10 +11,10 @@ class EventGallery extends React.Component {
     const gallery = document.getElementById("photo-gallery");
     let images = [
       {name: 'Corner-School-Float-photo', blurb:'\nThe Corner School Float in the Warren 4th of July Parade', ext: '.jpg'},
-      {name: 'IMG_590', blurb:'\nCupKate at the Corner School bake sale', ext:'.jpg' },
-      {name: 'IMG_829', blurb:'\nThe Grancille selesct board selling the Corner School building to the Corner School Resource Center group', ext:'.jpg'},
-      {name: 'IMG_830', blurb:'\n', ext:'.jpg'},
-      {name: 'IMG_837', blurb:'\n', ext:'.jpg'}
+      {name: 'IMG_0590', blurb:'\nCupKate at the Corner School bake sale', ext:'.jpg' },
+      {name: 'IMG_0829', blurb:'\nThe Grancille selesct board selling the Corner School building to the Corner School Resource Center group', ext:'.jpg'},
+      {name: 'IMG_0830', blurb:'\n', ext:'.jpg'},
+      {name: 'IMG_0837', blurb:'\n', ext:'.jpg'}
     ];
 
     let thumbElements = []

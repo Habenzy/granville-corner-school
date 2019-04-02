@@ -41,28 +41,15 @@ code {
 #contact {
   height:65px;
   width: 85px;
-  border-top: white 2px solid;
-  border-left: white 2px solid;
+  font-size: 20px
+}
+
+#fb-img {
+  height: 65px;
 }
 
 #contact:hover{
   cursor:pointer;
-}
-
-#facebook-button {
-  height: 61px;
-  width: 81px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color:#3134bb;
-  border-bottom: #161757 2px solid;
-  border-right: #161757 2px solid;
-  border-top: #a4a6fd 2px solid;
-  border-left: #a4a6fd 2px solid;
-  color:white;
-  text-decoration: none;
-  text-justify: center;
 }
 
 #facebook-button:hover{
