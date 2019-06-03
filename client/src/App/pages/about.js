@@ -9,7 +9,7 @@ class About extends React.Component {
         <Header />
         <div className="corner-school-desc">
           <h2>The Granville Library Building</h2>
-          <b>A Brief History</b>
+          <b className="desc-subtitle">A Brief History</b>
           <br />
           <img id="history-image" src="./images/historic/133.jpeg" alt="Granville from above looking North" />
           <p className="indent">In the 1870’s, as Granville’s population soared to 830 citizens, the town decided that the Upper Village needed its own educational facility. Indeed, all of Granville’s neighborhoods had them – the Lower Village, West Hill, South and North Hollows, Texas Falls – ten one-room schoolhouses in all.</p>

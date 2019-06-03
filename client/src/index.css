@@ -251,6 +251,10 @@ code {
   text-align: center;
 }
 
+.desc-subtitle {
+  text-align: center;
+}
+
 /*For mobile reactiveness*/
 
 @media screen and (max-width: 736px) {
