@@ -7,7 +7,7 @@ class Footer extends React.Component {
     const contact = document.getElementById('contact');
     contact.addEventListener('click', displayContact);
     function displayContact() {
-      alert('Email: vtcornerschool@gmail.com\nMailing address: 1250 Maston Hill Rd. Granville, VT 05747\nPhone number: tbd')
+      alert('Email: vtcornerschool@gmail.com\nMailing address: P.O. Box 1, Granville VT 05747\nPhone number: tbd')
     }
   }
 
@@ -15,7 +15,7 @@ class Footer extends React.Component {
     return (
       <div className='foot-bar'>
         <button id='contact' className="nav-button">Contact Us</button>
-        <div>75 Post Office Rd. Granville, VT 05747</div>
+        <div id='street-address'>75 Post Office Rd. Granville, VT 05747</div>
         <a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/"><div id="facebook-button"><img src="./images/Facebook-Button.png" alt="facebook" id="fb-img"/></div></a>
         <div><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_donations" />
