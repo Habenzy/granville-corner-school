@@ -29,7 +29,11 @@ class RestorationGallery extends React.Component {
       { name: 'IMG_9467', blurb: '\n', ext: '.jpg' },
       {name: 'IMG_0048', blurb: '\nArtifacts found in the old school building', ext: '.jpeg'},
       {name: 'IMG_0049', blurb:'\nRemoval of the floor, and evaluation of the foundation', ext:'.jpeg'},
-      {name: 'IMG_0051', blurb:'\nWork day at the Corner School building', ext: '.jpeg'}
+      {name: 'IMG_0051', blurb:'\nWork day at the Corner School building', ext: '.jpeg'},
+      {name: 'IMG_0288', blurb:'\n', ext: '.jpg'},
+      {name: 'IMG_0299', blurb:'\n', ext: '.jpg'},
+      {name: 'IMG_0434', blurb:'\n', ext: '.jpg'},
+      {name: 'IMG_0436', blurb:'\n', ext: '.jpg'}
 
     ];
     let thumbElements = [];
