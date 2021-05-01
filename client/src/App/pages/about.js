@@ -37,6 +37,7 @@ class About extends React.Component {
             <li>Amy Carst, Director</li>
             <li>Michael Eramo, Director</li>
             <li>Roger Stauss, Director</li>
+            <li><a href="https://us02web.zoom.us/j/81963710704?pwd=c1l0bkZsT3RMTE9vSWNrS3gvY0t1QT09">Member's Link</a></li>
           </ul>
         </div>
         <Footer />
