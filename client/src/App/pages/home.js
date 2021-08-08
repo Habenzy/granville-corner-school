@@ -32,7 +32,7 @@ class Home extends React.Component {
         <Header />
         <div id="home-body">
           <div id="cover">
-            <img id="home-img" src="./images/50.jpeg" alt="The Granville Corner School" />
+            <img id="home-img" src="./images/poster.jpeg" alt="The Granville Corner School" />
             <div id="mission-statement">
               <p>The Corner School Resource Center of Granville is dedicated to<br /> the preservation of the region's unique natural and cultural history, and the creation of a learning center that connects Granville to the wider world in the historic Corner School building.</p>
             </div>
