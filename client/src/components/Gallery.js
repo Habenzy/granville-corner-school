@@ -3,64 +3,60 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 function Gallery(props) {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getDocs(collection(db, props.section)).then((querySnapshot) => {
+      let imgData = [];
+      querySnapshot.forEach((doc) => {
+        imgData.push(doc.data());
+      });
+      console.log(imgData);
+      setImages(imgData);
+    });
+  }, []);
+
   return (
     <div>
       <div id="photo-gallery">
-        <ImageSet section={props.section} />
+        {images.map((image) => {
+          return (
+            <Image name={image.name} blurb={image.blurb} url={image.url} />
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function ImageSet(props) {
-  const [images, setImages] = useState([]);
+function Image(props) {
+  const [modalOpen, setModal] = useState(false)
 
-  useEffect(() => {
-
-    getDocs(collection(db, props.section)).then(querySnapshot => {
-      let imgData = []
-      querySnapshot.forEach((doc) => {imgData.push(doc.data())})
-      console.log(imgData)
-      setImages(imgData)
-    })
-    ;
-  }, []);
-
-  console.log(images)
   return (
     <>
-      {
-      images.map((image) => {
-        return (
-          <>
-            <div class="image-thumb">
-              <img
-                class="thumb"
-                id={image.name}
-                src={image.url}
-                alt={image.blurb}
-              />
-            </div>
-            <div id={"modal-" + image.name} class="modal">
-              <span class="close" id={"close-" + image.name}>
-                &times;
-              </span>
-              <img
-                class="modal-content"
-                id={"img-" + image.name}
-                src={image.url}
-                alt={image.blurb}
-              />
-              <div class="description">
-                <br />
-                {image.blurb}
-              </div>
-            </div>
-          </>
-        );
-      })}
+      <div class="image-thumb" onClick={() => {
+        setModal(true)
+      }}>
+        <img class="thumb" src={props.url} alt={props.blurb} />
+      </div>
+      <div class="modal" display={modalOpen}>
+        <span class="close" onClick={() => {
+          setModal(false)
+        }}>
+          &times;
+        </span>
+        <img
+          class="modal-content"
+          src={props.url}
+          alt={props.name}
+        />
+        <div class="description">
+          <br />
+          {props.blurb}
+        </div>
+      </div>
     </>
   );
 }
 
-export default Gallery
+export default Gallery;
