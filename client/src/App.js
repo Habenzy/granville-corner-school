@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import About from "./components/About";
 import Admin from "./components/Admin";
 import Audio from "./components/Audio";
@@ -60,11 +61,14 @@ let gallerySetup = dataSet.map((imgData) => {
   return imgData
 });
 
-gallerySetup.forEach(async (entry) => {
-  await setDoc(doc(db, "restoration"), entry);
-});
 
 function App() {
+
+  useEffect(() => {
+    gallerySetup.forEach(async (entry) => {
+      await setDoc(doc(db, "restoration"), entry);
+    });
+  }, [])
   return (
     <div>
       <div>
