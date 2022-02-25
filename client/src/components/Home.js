@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { db } from "../config/firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 function Home(props) {
   const [quotes, setQuotes] = useState([

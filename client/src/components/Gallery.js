@@ -5,7 +5,9 @@ import { db } from "../config/firebase";
 function Gallery(props) {
   return (
     <div>
-      <div id="photo-gallery"></div>
+      <div id="photo-gallery">
+        <ImageSet section={props.section} />
+      </div>
     </div>
   );
 }
@@ -16,14 +18,19 @@ function ImageSet(props) {
   useEffect(() => {
 
     getDocs(collection(db, props.section)).then(querySnapshot => {
-      querySnapshot.forEach((doc) => {})
+      let imgData = []
+      querySnapshot.forEach((doc) => {imgData.push(doc.data())})
+      console.log(imgData)
+      setImages(imgData)
     })
     ;
   }, []);
 
+  console.log(images)
   return (
     <>
-      {images.map((image) => {
+      {
+      images.map((image) => {
         return (
           <>
             <div class="image-thumb">
