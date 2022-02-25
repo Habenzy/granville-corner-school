@@ -11,7 +11,6 @@ function Gallery(props) {
       querySnapshot.forEach((doc) => {
         imgData.push(doc.data());
       });
-      console.log(imgData);
       setImages(imgData);
     });
   }, []);
@@ -19,42 +18,49 @@ function Gallery(props) {
   return (
     <div>
       <div id="photo-gallery">
-        {images.map((image) => {
-          return (
-            <Image name={image.name} blurb={image.blurb} url={image.url} />
-          );
-        })}
+        {images.length
+          ? images.map((image) => {
+              return (
+                <Image name={image.name} blurb={image.blurb} url={image.url} />
+              );
+            })
+          : "loading..."}
       </div>
     </div>
   );
 }
 
 function Image(props) {
-  const [modalOpen, setModal] = useState(false)
-
+  const [modalOpen, setModal] = useState(false);
   return (
     <>
-      <div class="image-thumb" onClick={() => {
-        setModal(true)
-      }}>
+      <div
+        class="image-thumb"
+        onClick={() => {
+          console.log("opening modal");
+          setModal(true);
+        }}
+      >
         <img class="thumb" src={props.url} alt={props.blurb} />
       </div>
-      <div class="modal" display={modalOpen}>
-        <span class="close" onClick={() => {
-          setModal(false)
-        }}>
-          &times;
-        </span>
-        <img
-          class="modal-content"
-          src={props.url}
-          alt={props.name}
-        />
-        <div class="description">
-          <br />
-          {props.blurb}
+      {modalOpen && (
+        <div class="modal" display={modalOpen}>
+          <span
+            class="close"
+            onClick={() => {
+              console.log("closing modal");
+              setModal(false);
+            }}
+          >
+            &times;
+          </span>
+          <img class="modal-content" src={props.url} alt={props.name} />
+          <div class="description">
+            <br />
+            {props.blurb}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
