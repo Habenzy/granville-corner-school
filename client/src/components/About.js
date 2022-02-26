@@ -7,7 +7,7 @@ export default function About(props) {
         <br />
         <img
           id="history-image"
-          src="./images/historic/133.jpeg"
+          src="https://firebasestorage.googleapis.com/v0/b/granville-corner-school.appspot.com/o/historic%2133.jpeg?alt=media&token=ebd032ff-a1d7-4fdc-998d-defd4d5bd23b"
           alt="Granville from above looking North"
         />
         <p className="indent">
@@ -79,7 +79,7 @@ export default function About(props) {
         <br />
         <img
           id="csrc-img"
-          src=".\images\events\Corner-School-Float-photo.jpg"
+          src="https://firebasestorage.googleapis.com/v0/b/granville-corner-school.appspot.com/o/event%2FCorner-School-Float-photo.jpg?alt=media&token=ebd032ff-a1d7-4fdc-998d-defd4d5bd23b"
           alt=""
         />
         <p className="indent">
