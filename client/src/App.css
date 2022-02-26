@@ -40,6 +40,14 @@ code {
   align-items: center;
 }
 
+.attribution {
+  display: inline-block;
+  background-color: #f2c993;
+  font-size: .5rem;
+  height: 100%;
+  width: 100%
+}
+
 #contact {
   height:65px;
   width: 85px;

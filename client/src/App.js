@@ -36,6 +36,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />
+        <a className="attribution" href="https://www.freeiconspng.com/img/14392">School House Icon Pictures</a>
       </div>
     </div>
   );
