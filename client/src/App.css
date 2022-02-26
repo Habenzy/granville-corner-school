@@ -30,6 +30,8 @@ code {
     monospace;
 }
 
+/*---------------------Footer----------------------*/
+
 .foot-bar {
   background-color: #f2c993;
   min-height: 75px;
@@ -56,13 +58,14 @@ code {
   cursor: pointer;
 }
 
+/*---------------Header----------------*/
+
 .head-bar {
-  background-color: #f2c993;
+  background-color: #e94b02;
   height: 75px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 4px solid #e94b02
 }
 
 #head {
@@ -74,16 +77,18 @@ code {
 
 #head h1 {
   margin: 0;
-  font-size: 48px;
+  font-size: 4rem;
+  margin-bottom: 10vh;
 }
 
 .nav-button {
   color: white;
+  text-shadow: 1px 2px black;
   font-size: 20px;
   height: 60px;
   width: 100px;
   border-radius: 15px;
-  background-image: linear-gradient(#3d644a, #b5ceb5, #3d644a, #253d25) ;
+  background-image: linear-gradient(325deg, #3d644a, #3d644a, #b5ceb5, #253d25) ;
   border-right: 2px solid #253d25;
   border-bottom: 2px solid #253d25;
   border-left: 2px solid #8fbe8f;
@@ -95,6 +100,7 @@ code {
   cursor: pointer;
 }
 
+/*-------------Home Page-----------------*/
 
 #home-body {
   display: flex;
@@ -135,6 +141,7 @@ code {
   border-radius: 7px;
 }
 
+/*----------------Gallery Entry-------------------*/
 
 #gallery-nav{
   height: 700px;
@@ -164,7 +171,7 @@ code {
   cursor: pointer;
 }
 
-/*photo gallery shenanigans*/
+/*--------------photo gallery shenanigans----------*/
 
 #photo-gallery {
   display: flex;
@@ -231,6 +238,8 @@ code {
   cursor: pointer;
 }
 
+/*-----------------About Page-----------------*/
+
 #history-image {
   float: left;
   width: 600px;
@@ -251,7 +260,7 @@ code {
   text-align: center;
 }
 
-/*For mobile reactiveness*/
+/*----------For mobile responsiveness(ish)--------*/
 
 @media screen and (max-width: 736px) {
   

@@ -1,3 +1,5 @@
+import fbButton from "../media/Facebook-Button.png"
+
 function Footer(props) {
   return(
     <div className="foot-bar">
@@ -13,7 +15,7 @@ function Footer(props) {
     <a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/">
       <div id="facebook-button">
         <img
-          src="./images/Facebook-Button.png"
+          src={fbButton}
           alt="facebook"
           id="fb-img"
         />

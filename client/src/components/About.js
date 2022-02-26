@@ -7,7 +7,7 @@ export default function About(props) {
         <br />
         <img
           id="history-image"
-          src="https://firebasestorage.googleapis.com/v0/b/granville-corner-school.appspot.com/o/historic%2133.jpeg?alt=media&token=ebd032ff-a1d7-4fdc-998d-defd4d5bd23b"
+          src="https://firebasestorage.googleapis.com/v0/b/granville-corner-school.appspot.com/o/history%2F133.jpeg?alt=media&token=ebd032ff-a1d7-4fdc-998d-defd4d5bd23b"
           alt="Granville from above looking North"
         />
         <p className="indent">

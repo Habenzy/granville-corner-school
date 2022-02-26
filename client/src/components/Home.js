@@ -13,9 +13,13 @@ function Home(props) {
   const [dispQuote, setDispQuote] = useState('Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B.')
 
   useEffect(() => {
-    setTimeout(() => {
+    let timeoutID = setTimeout(() => {
       setDispQuote(quotes[Math.floor(Math.random() * (quotes.length))])
     }, 10000)
+
+    return () => {
+      clearTimeout(timeoutID)
+    }
   })
 
   return (
