@@ -1,7 +1,12 @@
 import { setDoc, doc } from "firebase/firestore";
-import { db, storage } from "../config/firebase";
+import { db, storage, auth } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 
 export default function Admin(props) {
   const [name, setName] = useState("");
@@ -10,6 +15,18 @@ export default function Admin(props) {
   const [imageFile, setImageFile] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  });
 
   async function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
@@ -60,7 +77,12 @@ export default function Admin(props) {
     setQuote("");
   }
 
-  return (
+  const handleSignIn = (evt) => {
+    evt.preventDefault();
+    signInWithEmailAndPassword(auth, email, password);
+  };
+
+  return user ? (
     <div id="admin-body">
       <form
         id="gallery-form"
@@ -69,7 +91,8 @@ export default function Admin(props) {
           createGalleryEntry();
         }}
       >
-        <label htmlFor="file-name">Image name</label>
+        <label htmlFor="file-name">Image name: </label>
+        <br></br>
         <input
           onChange={(evt) => {
             setName(evt.target.value);
@@ -82,8 +105,9 @@ export default function Admin(props) {
         />
         <br></br>
         <label htmlFor="blurb">
-          Description that will appear under the image
+          Description that will appear under the image:
         </label>
+        <br></br>
         <input
           onChange={(evt) => {
             setBlurb(evt.target.value);
@@ -96,8 +120,9 @@ export default function Admin(props) {
         />
         <br></br>
         <label htmlFor="gallery-choice">
-          Choose the Gallery you want this image to appear in
+          Choose the Gallery you want this image to appear in:
         </label>
+        <br></br>
         <select
           onChange={(evt) => {
             setGallery(evt.target.value);
@@ -111,7 +136,8 @@ export default function Admin(props) {
           <option value="event">Event Gallery</option>
         </select>
         <br></br>
-        <label htmlFor="image">Choose an Image to upload</label>
+        <label htmlFor="image">Choose an Image to upload:</label>
+        <br></br>
         <input
           onChange={(evt) => {
             setImageFile(evt.target.files[0]);
@@ -125,7 +151,17 @@ export default function Admin(props) {
         <input type="submit" value="Submit Photo" />
       </form>
 
-      <form
+      <button
+        onClick={(evt) => {
+          signOut(auth).then((resp) => {
+            setUser(null);
+          });
+        }}
+      >
+        Sign Out
+      </button>
+
+      {/* <form
         id="quote-form"
         onSubmit={(evt) => {
           evt.preventDefault();
@@ -150,6 +186,32 @@ export default function Admin(props) {
             setAuthor(evt.target.value);
           }}
         />
+      </form> */}
+    </div>
+  ) : (
+    <div>
+      <h3>Log In</h3>
+      <form onSubmit={handleSignIn}>
+        <input
+          type="text"
+          value={email}
+          onChange={(evt) => {
+            setEmail(evt.target.value);
+          }}
+          name="email"
+          placeholder="Email"
+        />
+        <br></br>
+        <input
+          type="password"
+          value={password}
+          onChange={(evt) => {
+            setPassword(evt.target.value);
+          }}
+          name="password"
+          placeholder="password"
+        />
+        <input type="submit" />
       </form>
     </div>
   );

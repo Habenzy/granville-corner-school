@@ -1,7 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
 import About from "./components/About";
 import Admin from "./components/Admin";
 import Audio from "./components/Audio";
@@ -14,7 +12,7 @@ import Home from "./components/Home";
 
 
 function App() {
-  
+
   return (
     <div>
       <div>
