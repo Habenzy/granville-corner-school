@@ -2,17 +2,14 @@ import { setDoc, doc } from "firebase/firestore";
 import { db, storage } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
-import { setUserProperties } from "firebase/analytics";
-
-async function createEventEntry(entry) {
-  await setDoc(doc(db, "events", entry.name), entry);
-}
 
 export default function Admin(props) {
   const [name, setName] = useState("");
   const [blurb, setBlurb] = useState("");
   const [gallery, setGallery] = useState("history");
   const [imageFile, setImageFile] = useState("");
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
 
   async function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
@@ -40,11 +37,27 @@ export default function Admin(props) {
             blurb: blurb,
             url: downloadURL,
           };
-          console.log(db, gallery, entry.name)
+          console.log(db, gallery, entry.name);
           setDoc(doc(db, gallery, entry.name), entry);
+
+          setName("");
+          setBlurb("");
+          setImageFile("");
         });
       }
     );
+  }
+
+  function createQuote() {
+    let quoteEntry = {
+      quote: quote,
+      author: author,
+    };
+
+    setDoc(doc(db, "quotes"), quoteEntry);
+
+    setAuthor("");
+    setQuote("");
   }
 
   return (
@@ -67,6 +80,7 @@ export default function Admin(props) {
           type="text"
           placeholder="Image name..."
         />
+        <br></br>
         <label htmlFor="blurb">
           Description that will appear under the image
         </label>
@@ -80,6 +94,7 @@ export default function Admin(props) {
           type="text"
           placeholder="Image blurb..."
         />
+        <br></br>
         <label htmlFor="gallery-choice">
           Choose the Gallery you want this image to appear in
         </label>
@@ -95,6 +110,7 @@ export default function Admin(props) {
           <option value="restoration">Restoration Gallery</option>
           <option value="event">Event Gallery</option>
         </select>
+        <br></br>
         <label htmlFor="image">Choose an Image to upload</label>
         <input
           onChange={(evt) => {
@@ -105,7 +121,35 @@ export default function Admin(props) {
           type="file"
           accept="image/png, image/jpeg"
         />
+        <br></br>
         <input type="submit" value="Submit Photo" />
+      </form>
+
+      <form
+        id="quote-form"
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          createQuote();
+        }}
+      >
+        <input
+          type="text"
+          name="quote"
+          placeholder="Enter a quote or announcement"
+          value={quote}
+          onChange={(evt) => {
+            setQuote(evt.target.value);
+          }}
+        />
+        <input
+          type="text"
+          name="quote"
+          placeholder="Enter an author"
+          value={author}
+          onChange={(evt) => {
+            setAuthor(evt.target.value);
+          }}
+        />
       </form>
     </div>
   );
