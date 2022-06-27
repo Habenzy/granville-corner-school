@@ -19,7 +19,7 @@ export default function Event(props) {
 
   return (
     <div id="event-container" className={open}>
-      <h3>{props.announcement.title}</h3>
+      <h2>{props.announcement.title}</h2>
       {props.announcement.image && <img src={props.announcement.image} alt="" />}
       <div id="text-container" className={open} dangerouslySetInnerHTML={setContent()}></div>
 

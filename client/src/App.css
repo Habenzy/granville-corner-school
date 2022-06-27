@@ -166,7 +166,7 @@ code {
   right: 30vw
 }
 
-#event-container h3 {
+#event-container h3, h2 {
   text-align: center;
 }
 
