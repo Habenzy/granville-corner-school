@@ -28,7 +28,6 @@ function Home(props) {
     "Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B."
   );
   const [announcement, setAnnouncement] = useState({
-    image: "https://firebasestorage.googleapis.com/v0/b/granville-corner-school.appspot.com/o/4%20-%20swampy-painting.png?alt=media&token=c6f9a8d2-7ccc-4b9e-9fb3-cc6e1587df6f",
     title: "Free Summer Workshop Series",
     blurb: `The Corner School Resource Center of Granville VT (CSRC) is offering six free workshops on select Thursdays in July and August. Topics range from Nature Journaling to Financial Literacy and Memoir Writing with a focus on education and fun.
     These workshops are open to anyone in the White River and Mad River communities and will be held at the Corner School, located at 75 Post Office Hill Rd. in Granville. 
