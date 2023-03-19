@@ -1,4 +1,4 @@
-import { setDoc, doc, getDocs, query, collection } from "firebase/firestore";
+import { setDoc, doc, getDocs, query, collection, updateDoc } from "firebase/firestore";
 import { db, storage, auth } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
@@ -9,11 +9,13 @@ import {
 } from "firebase/auth";
 
 function EditEntry(props) {
-  const [editName, setEditName] = useState(props.name);
-  const [editBlurb, setEditBlurb] = useState(props.blurb);
-  const [editDate, setEditDate] = useState(props.date);
+  const [editName, setEditName] = useState('');
+  const [editBlurb, setEditBlurb] = useState('');
+  const [editDate, setEditDate] = useState('');
 
-  function updateGalleryEntry() {}
+  function updateGalleryEntry() {
+
+  }
 
   return (
     <div>
@@ -32,10 +34,9 @@ function EditEntry(props) {
             setEditName(evt.target.value);
           }}
           value={editName}
-          required={true}
           name="file-name"
           type="text"
-          placeholder="Image name..."
+          placeholder={props.name}
         />
         <br></br>
         <label htmlFor="date-taken">Date taken: </label>
@@ -45,10 +46,8 @@ function EditEntry(props) {
             setEditDate(evt.target.value);
           }}
           value={editDate}
-          required={true}
           name="date-taken"
           type="date"
-          placeholder="Image name..."
         />
         <br></br>
         <label htmlFor="edit-blurb">
@@ -60,10 +59,10 @@ function EditEntry(props) {
             setEditBlurb(evt.target.value);
           }}
           value={editBlurb}
-          required={true}
+
           name="edit-blurb"
           type="text"
-          placeholder="Image blurb..."
+          placeholder={props.blurb}
         />
         <input type="submit" />
       </form>
