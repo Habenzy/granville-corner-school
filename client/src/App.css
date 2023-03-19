@@ -127,7 +127,7 @@ code {
 #mission-statement > p {
   margin: 0;
   font-size: 1.6rem;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   text-align: center;
   border-radius: 5px;
 }
@@ -135,7 +135,7 @@ code {
 #event-quote {
   height: 3rem;
   font-size: 1.2rem;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 5px;
   max-width: 55vw;
   border: 1px #e94b02 solid;
