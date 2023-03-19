@@ -288,7 +288,7 @@ export default function Admin(props) {
           onChange={(evt) => {
             setEditGallery(evt.target.value);
           }}
-          value={gallery}
+          value={editGallery}
           required={true}
           name="gallery-edit-choice"
         >
