@@ -9,9 +9,9 @@ import {
 } from "firebase/auth";
 
 function EditEntry(props) {
-  const [editName, setEditName] = useState(props.name || "");
-  const [editBlurb, setEditBlurb] = useState(props.blurb || "");
-  const [editDate, setEditDate] = useState(props.date || "");
+  const [editName, setEditName] = useState(props.name);
+  const [editBlurb, setEditBlurb] = useState(props.blurb);
+  const [editDate, setEditDate] = useState(props.date);
 
   function updateGalleryEntry() {}
 
