@@ -19,13 +19,18 @@ function EditEntry(props) {
   const [editName, setEditName] = useState("");
   const [editBlurb, setEditBlurb] = useState("");
   const [editDate, setEditDate] = useState("");
-
+console.log("names", editName, props.name)
+console.log('dates')
   function updateGalleryEntry() {
     const imageDoc = doc(db, props.gallery, props.name);
     updateDoc(imageDoc, {
       name: editName || props.name,
       blurb: editBlurb || props.blurb,
       date: editDate || props.date,
+    }).then(res => {
+      alert("update successful")
+    }).catch(err => {
+      alert(`update failed: ${err.message}`)
     });
   }
 
@@ -114,7 +119,6 @@ function ChooseEdits(props) {
       </select>
       <ul id="edit-selection">
         {editImages.map((imageData, index) => {
-          console.log(imageData);
           return (
             <li key={index}>
               <EditEntry
