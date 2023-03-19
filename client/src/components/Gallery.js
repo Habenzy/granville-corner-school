@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 function Gallery(props) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    getDocs(collection(db, props.section)).then((querySnapshot) => {
+    getDocs(query(collection(db, props.section), orderBy('timestamp'))).then((querySnapshot) => {
       let imgData = [];
       querySnapshot.forEach((doc) => {
         imgData.push(doc.data());
