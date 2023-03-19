@@ -6,7 +6,7 @@ function Gallery(props) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    getDocs(query(collection(db, props.section), orderBy('timestamp'))).then((querySnapshot) => {
+    getDocs(query(collection(db, props.section), orderBy('url'))).then((querySnapshot) => {
       let imgData = [];
       querySnapshot.forEach((doc) => {
         imgData.push(doc.data());
