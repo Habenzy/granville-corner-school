@@ -17,7 +17,7 @@ function EditEntry(props) {
 
   return (
     <div>
-      <image className="thumb" src={props.url} alt={props.name} />
+      <image className="edit-thumb" src={props.url} alt={props.name} />
       <form
         className="edit-images"
         onSubmit={(evt) => {
@@ -65,6 +65,7 @@ function EditEntry(props) {
           type="text"
           placeholder="Image blurb..."
         />
+        <input type="submit" />
       </form>
     </div>
   );

@@ -320,7 +320,10 @@ code {
   width: 40vw
 }
 
-
+.edit-thumb {
+  height: 150px;
+  width: 150px
+}
 
 /*----------For mobile responsiveness(ish)--------*/
 
