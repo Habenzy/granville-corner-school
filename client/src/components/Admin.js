@@ -1,4 +1,11 @@
-import { setDoc, doc, getDocs, query, collection, updateDoc } from "firebase/firestore";
+import {
+  setDoc,
+  doc,
+  getDocs,
+  query,
+  collection,
+  updateDoc,
+} from "firebase/firestore";
 import { db, storage, auth } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
@@ -9,12 +16,12 @@ import {
 } from "firebase/auth";
 
 function EditEntry(props) {
-  const [editName, setEditName] = useState('');
-  const [editBlurb, setEditBlurb] = useState('');
-  const [editDate, setEditDate] = useState('');
+  const [editName, setEditName] = useState("");
+  const [editBlurb, setEditBlurb] = useState("");
+  const [editDate, setEditDate] = useState("");
 
   function updateGalleryEntry() {
-
+    const imageDoc = doc(db);
   }
 
   return (
@@ -59,7 +66,6 @@ function EditEntry(props) {
             setEditBlurb(evt.target.value);
           }}
           value={editBlurb}
-
           name="edit-blurb"
           type="text"
           placeholder={props.blurb}
@@ -71,50 +77,8 @@ function EditEntry(props) {
 }
 
 function ChooseEdits(props) {
-  return(
-    <ul id="edit-selection">
-          {props.editImages.map((imageData, index) => {
-            console.log(imageData);
-            return (
-              <li key={index}>
-                <EditEntry
-                  name={imageData.name}
-                  url={imageData.url}
-                  blurb={imageData.blurb}
-                  date={imageData.date}
-                />
-              </li>
-            );
-          })}
-        </ul>
-  )
-}
-
-export default function Admin(props) {
-  //add gallery entry
-  const [name, setName] = useState("");
-  const [blurb, setBlurb] = useState("");
-  const [gallery, setGallery] = useState("history");
-  const [imageFile, setImageFile] = useState("");
-  //add quotes
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
-  const [date, setDate] = useState("");
-  //edit gallery
   const [editGallery, setEditGallery] = useState("history");
   const [editImages, setEditImages] = useState([]);
-  //log in/out
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      }
-    });
-  });
 
   useEffect(() => {
     getDocs(query(collection(db, editGallery)))
@@ -127,6 +91,65 @@ export default function Admin(props) {
       })
       .catch((err) => console.log(err.message));
   }, [editGallery]);
+
+  return (
+    <div>
+      <h3>Select a Gallery to edit</h3>
+      <select
+        onChange={(evt) => {
+          setEditGallery(evt.target.value);
+        }}
+        value={editGallery}
+        required={true}
+        name="gallery-edit-choice"
+      >
+        <option value="history">Historical Gallery</option>
+        <option value="restoration">Restoration Gallery</option>
+        <option value="event">Event Gallery</option>
+      </select>
+      <ul id="edit-selection">
+        {editImages.map((imageData, index) => {
+          console.log(imageData);
+          return (
+            <li key={index}>
+              <EditEntry
+                name={imageData.name}
+                url={imageData.url}
+                blurb={imageData.blurb}
+                date={imageData.date}
+                gallery={props.gallery}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default function Admin(props) {
+  //add gallery entry
+  const [name, setName] = useState("");
+  const [blurb, setBlurb] = useState("");
+  const [gallery, setGallery] = useState("history");
+  const [imageFile, setImageFile] = useState("");
+  //add quotes
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+  const [date, setDate] = useState("");
+
+  //log in/out
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
+  });
 
   async function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
@@ -302,22 +325,7 @@ export default function Admin(props) {
           }}
         />
       </form> */}
-      <div>
-        <h3>Select a Gallery to edit</h3>
-        <select
-          onChange={(evt) => {
-            setEditGallery(evt.target.value);
-          }}
-          value={editGallery}
-          required={true}
-          name="gallery-edit-choice"
-        >
-          <option value="history">Historical Gallery</option>
-          <option value="restoration">Restoration Gallery</option>
-          <option value="event">Event Gallery</option>
-        </select>
-        <ChooseEdits editImages={editImages} />
-      </div>
+        <ChooseEdits />
     </div>
   ) : (
     <div>
