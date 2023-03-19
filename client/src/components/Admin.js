@@ -1,4 +1,4 @@
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDocs, query, collection } from "firebase/firestore";
 import { db, storage, auth } from "../config/firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useState, useEffect } from "react";
@@ -8,15 +8,82 @@ import {
   signOut,
 } from "firebase/auth";
 
+function EditEntry(props) {
+  const [editName, setEditName] = useState(props.name || "");
+  const [editBlurb, setEditBlurb] = useState(props.blurb || "");
+  const [editDate, setEditDate] = useState(props.date || "");
+
+  function updateGalleryEntry() {}
+
+  return (
+    <div>
+      <image src={props.url} alt={props.name} />
+      <form
+        className="edit-images"
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          updateGalleryEntry();
+        }}
+      >
+        <label htmlFor="file-name">Image name: </label>
+        <br></br>
+        <input
+          onChange={(evt) => {
+            setEditName(evt.target.value);
+          }}
+          value={editName}
+          required={true}
+          name="file-name"
+          type="text"
+          placeholder="Image name..."
+        />
+        <br></br>
+        <label htmlFor="date-taken">Date taken: </label>
+        <br></br>
+        <input
+          onChange={(evt) => {
+            setEditDate(evt.target.value);
+          }}
+          value={editDate}
+          required={true}
+          name="date-taken"
+          type="date"
+          placeholder="Image name..."
+        />
+        <br></br>
+        <label htmlFor="edit-blurb">
+          Description that will appear under the image:
+        </label>
+        <br></br>
+        <input
+          onChange={(evt) => {
+            setEditBlurb(evt.target.value);
+          }}
+          value={editBlurb}
+          required={true}
+          name="edit-blurb"
+          type="text"
+          placeholder="Image blurb..."
+        />
+      </form>
+    </div>
+  );
+}
+
 export default function Admin(props) {
+  //add gallery entry
   const [name, setName] = useState("");
   const [blurb, setBlurb] = useState("");
   const [gallery, setGallery] = useState("history");
   const [imageFile, setImageFile] = useState("");
+  //add quotes
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
-  const [date, setDate] = useState("")
-
+  const [date, setDate] = useState("");
+  //edit gallery
+  const [editGallery, setEditGallery] = useState("history");
+  const [editImages, setEditImages] = useState([]);
+  //log in/out
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
@@ -28,6 +95,18 @@ export default function Admin(props) {
       }
     });
   });
+
+  useEffect(() => {
+    getDocs(query(collection(db, editGallery)))
+      .then((querySnapshot) => {
+        let imgData = [];
+        querySnapshot.forEach((doc) => {
+          imgData.push(doc.data());
+        });
+        setEditImages(imgData);
+      })
+      .catch((err) => console.log(err.message));
+  }, [editGallery]);
 
   async function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
@@ -54,8 +133,9 @@ export default function Admin(props) {
             name: name,
             blurb: blurb,
             url: downloadURL,
-            date: date
+            date: date,
           };
+
           console.log(db, gallery, entry.name);
           setDoc(doc(db, gallery, entry.name), entry);
 
@@ -112,7 +192,7 @@ export default function Admin(props) {
           onChange={(evt) => {
             setDate(evt.target.value);
           }}
-          value={name}
+          value={date}
           required={true}
           name="date-taken"
           type="date"
@@ -202,10 +282,41 @@ export default function Admin(props) {
           }}
         />
       </form> */}
+      <div>
+        <h3>Select a Gallery to edit</h3>
+        <select
+          onChange={(evt) => {
+            setEditGallery(evt.target.value);
+          }}
+          value={gallery}
+          required={true}
+          name="gallery-edit-choice"
+        >
+          <option value="history">Historical Gallery</option>
+          <option value="restoration">Restoration Gallery</option>
+          <option value="event">Event Gallery</option>
+        </select>
+        <ul id="edit-selection">
+          {editImages.map((imageData, index) => {
+            console.log(imageData);
+            return (
+              <li key={index}>
+                <EditEntry
+                  name={imageData.name}
+                  url={imageData.url}
+                  blurb={imageData.blurb}
+                  date={imageData.date}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   ) : (
     <div>
       <h3>Log In</h3>
+
       <form onSubmit={handleSignIn}>
         <input
           type="text"

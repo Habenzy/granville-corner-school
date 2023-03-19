@@ -309,6 +309,19 @@ code {
   text-align: center;
 }
 
+/* ----------------Admin Page--------------------- */
+
+#admin-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+#gallery-form {
+  width: 40vw
+}
+
+
+
 /*----------For mobile responsiveness(ish)--------*/
 
 @media screen and (max-width: 736px) {

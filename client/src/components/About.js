@@ -125,12 +125,11 @@ export default function About(props) {
           <b>The Board of Directors:</b>
         </p>
         <ul id="bod-list">
-          <li>Ronald Millard, President</li>
+          <li>Roger Stauss, President</li>
           <li>Diane Eramo, Treasurer</li>
           <li>Kate Youngdahl-Stauss, Secretary</li>
-          <li>Amy Carst, Director</li>
           <li>Michael Eramo, Director</li>
-          <li>Roger Stauss, Director</li>
+          <li>Clare Walker Leslie, Director</li>
         </ul>
       </div>
     </div>
