@@ -15,6 +15,7 @@ export default function Admin(props) {
   const [imageFile, setImageFile] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
+  const [date, setDate] = useState("")
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,6 +54,7 @@ export default function Admin(props) {
             name: name,
             blurb: blurb,
             url: downloadURL,
+            date: date
           };
           console.log(db, gallery, entry.name);
           setDoc(doc(db, gallery, entry.name), entry);
@@ -101,6 +103,19 @@ export default function Admin(props) {
           required={true}
           name="file-name"
           type="text"
+          placeholder="Image name..."
+        />
+        <br></br>
+        <label htmlFor="date-taken">Date taken: </label>
+        <br></br>
+        <input
+          onChange={(evt) => {
+            setDate(evt.target.value);
+          }}
+          value={name}
+          required={true}
+          name="date-taken"
+          type="date"
           placeholder="Image name..."
         />
         <br></br>
