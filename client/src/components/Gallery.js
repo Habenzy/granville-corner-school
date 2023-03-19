@@ -55,7 +55,10 @@ function Image(props) {
           >
             &times;
           </span>
-          <img class="modal-content" src={props.url} alt={props.name} />
+          <img class="modal-content" src={props.url} alt={props.name}  onClick={() => {
+              console.log("closing modal");
+              setModal(false);
+            }}/>
           <div class="description">
             <br />
             {props.blurb}
