@@ -71,6 +71,26 @@ function EditEntry(props) {
   );
 }
 
+function ChooseEdits(props) {
+  return(
+    <ul id="edit-selection">
+          {props.editImages.map((imageData, index) => {
+            console.log(imageData);
+            return (
+              <li key={index}>
+                <EditEntry
+                  name={imageData.name}
+                  url={imageData.url}
+                  blurb={imageData.blurb}
+                  date={imageData.date}
+                />
+              </li>
+            );
+          })}
+        </ul>
+  )
+}
+
 export default function Admin(props) {
   //add gallery entry
   const [name, setName] = useState("");
@@ -297,21 +317,7 @@ export default function Admin(props) {
           <option value="restoration">Restoration Gallery</option>
           <option value="event">Event Gallery</option>
         </select>
-        <ul id="edit-selection">
-          {editImages.map((imageData, index) => {
-            console.log(imageData);
-            return (
-              <li key={index}>
-                <EditEntry
-                  name={imageData.name}
-                  url={imageData.url}
-                  blurb={imageData.blurb}
-                  date={imageData.date}
-                />
-              </li>
-            );
-          })}
-        </ul>
+        <ChooseEdits editImages={editImages} />
       </div>
     </div>
   ) : (
