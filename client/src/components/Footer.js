@@ -14,7 +14,7 @@ function Footer(props) {
       >
         Contact Us
       </button>
-      <div id="street-address">75 Post Office Rd. Granville, VT 05747</div>
+      <div id="street-address">75 Post Office Hill Road, PO Box 1, Granville, VT 05747</div>
       <a href="https://www.facebook.com/CornerSchoolResourceCenterOfGranvilleVt/">
         <div id="facebook-button">
           <img src={fbButton} alt="facebook" id="fb-img" />
