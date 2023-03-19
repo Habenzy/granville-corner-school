@@ -12,7 +12,8 @@ function Gallery(props) {
         imgData.push(doc.data());
       });
       setImages(imgData);
-    });
+    })
+    .catch(err => console.log(err.message));
   }, []);
 
   return (
