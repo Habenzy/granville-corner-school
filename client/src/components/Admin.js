@@ -25,8 +25,8 @@ function EditEntry(props) {
     updateDoc(imageDoc, {
       name: editName || props.name,
       blurb: editBlurb || props.blurb,
-      date: editDate || props.date
-    })
+      date: editDate || props.date,
+    });
   }
 
   return (
@@ -213,98 +213,89 @@ export default function Admin(props) {
   };
 
   return user ? (
-    <div id="admin-body">
-      <form
-        id="gallery-form"
-        onSubmit={(evt) => {
-          evt.preventDefault();
-          createGalleryEntry();
-        }}
-      >
-        <label htmlFor="file-name">Image name: </label>
-        <br></br>
-        <input
-          onChange={(evt) => {
-            setName(evt.target.value);
+    <div>
+      <div id="admin-body">
+        <form
+          id="gallery-form"
+          onSubmit={(evt) => {
+            evt.preventDefault();
+            createGalleryEntry();
           }}
-          value={name}
-          required={true}
-          name="file-name"
-          type="text"
-          placeholder="Image name..."
-        />
-        <br></br>
-        <label htmlFor="date-taken">Date taken: </label>
-        <br></br>
-        <input
-          onChange={(evt) => {
-            setDate(evt.target.value);
-          }}
-          value={date}
-          required={true}
-          name="date-taken"
-          type="date"
-          placeholder="Image name..."
-        />
-        <br></br>
-        <label htmlFor="blurb">
-          Description that will appear under the image:
-        </label>
-        <br></br>
-        <input
-          onChange={(evt) => {
-            setBlurb(evt.target.value);
-          }}
-          value={blurb}
-          required={true}
-          name="blurb"
-          type="text"
-          placeholder="Image blurb..."
-        />
-        <br></br>
-        <label htmlFor="gallery-choice">
-          Choose the Gallery you want this image to appear in:
-        </label>
-        <br></br>
-        <select
-          onChange={(evt) => {
-            setGallery(evt.target.value);
-          }}
-          value={gallery}
-          required={true}
-          name="gallery-choice"
         >
-          <option value="history">Historical Gallery</option>
-          <option value="restoration">Restoration Gallery</option>
-          <option value="event">Event Gallery</option>
-        </select>
-        <br></br>
-        <label htmlFor="image">Choose an Image to upload:</label>
-        <br></br>
-        <input
-          onChange={(evt) => {
-            setImageFile(evt.target.files[0]);
-          }}
-          required={true}
-          name="image"
-          type="file"
-          accept="image/png, image/jpeg"
-        />
-        <br></br>
-        <input type="submit" value="Submit Photo" />
-      </form>
+          <label htmlFor="file-name">Image name: </label>
+          <br></br>
+          <input
+            onChange={(evt) => {
+              setName(evt.target.value);
+            }}
+            value={name}
+            required={true}
+            name="file-name"
+            type="text"
+            placeholder="Image name..."
+          />
+          <br></br>
+          <label htmlFor="date-taken">Date taken: </label>
+          <br></br>
+          <input
+            onChange={(evt) => {
+              setDate(evt.target.value);
+            }}
+            value={date}
+            required={true}
+            name="date-taken"
+            type="date"
+            placeholder="Image name..."
+          />
+          <br></br>
+          <label htmlFor="blurb">
+            Description that will appear under the image:
+          </label>
+          <br></br>
+          <input
+            onChange={(evt) => {
+              setBlurb(evt.target.value);
+            }}
+            value={blurb}
+            required={true}
+            name="blurb"
+            type="text"
+            placeholder="Image blurb..."
+          />
+          <br></br>
+          <label htmlFor="gallery-choice">
+            Choose the Gallery you want this image to appear in:
+          </label>
+          <br></br>
+          <select
+            onChange={(evt) => {
+              setGallery(evt.target.value);
+            }}
+            value={gallery}
+            required={true}
+            name="gallery-choice"
+          >
+            <option value="history">Historical Gallery</option>
+            <option value="restoration">Restoration Gallery</option>
+            <option value="event">Event Gallery</option>
+          </select>
+          <br></br>
+          <label htmlFor="image">Choose an Image to upload:</label>
+          <br></br>
+          <input
+            onChange={(evt) => {
+              setImageFile(evt.target.files[0]);
+            }}
+            required={true}
+            name="image"
+            type="file"
+            accept="image/png, image/jpeg"
+          />
+          <br></br>
+          <input type="submit" value="Submit Photo" />
+        </form>
 
-      <button
-        onClick={(evt) => {
-          signOut(auth).then((resp) => {
-            setUser(null);
-          });
-        }}
-      >
-        Sign Out
-      </button>
-
-      {/* <form
+        {/* <form
         id="quote-form"
         onSubmit={(evt) => {
           evt.preventDefault();
@@ -331,6 +322,16 @@ export default function Admin(props) {
         />
       </form> */}
         <ChooseEdits />
+      </div>
+      <button
+        onClick={(evt) => {
+          signOut(auth).then((resp) => {
+            setUser(null);
+          });
+        }}
+      >
+        Sign Out
+      </button>
     </div>
   ) : (
     <div>
