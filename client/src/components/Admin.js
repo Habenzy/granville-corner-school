@@ -17,7 +17,7 @@ function EditEntry(props) {
 
   return (
     <div>
-      <image src={props.url} alt={props.name} />
+      <image className="thumb" src={props.url} alt={props.name} />
       <form
         className="edit-images"
         onSubmit={(evt) => {
