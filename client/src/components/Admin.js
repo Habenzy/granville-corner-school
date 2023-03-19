@@ -21,7 +21,12 @@ function EditEntry(props) {
   const [editDate, setEditDate] = useState("");
 
   function updateGalleryEntry() {
-    const imageDoc = doc(db);
+    const imageDoc = doc(db, props.gallery, props.name);
+    updateDoc(imageDoc, {
+      name: editName || props.name,
+      blurb: editBlurb || props.blurb,
+      date: editDate || props.date
+    })
   }
 
   return (
@@ -117,7 +122,7 @@ function ChooseEdits(props) {
                 url={imageData.url}
                 blurb={imageData.blurb}
                 date={imageData.date}
-                gallery={props.gallery}
+                gallery={editGallery}
               />
             </li>
           );
