@@ -27,7 +27,11 @@ function Home(props) {
   const [dispQuote, setDispQuote] = useState(
     "Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B."
   );
-  const [announcements, setAnnouncements] = useState([])
+  const [announcements, setAnnouncements] = useState([
+    {title: "Art Show: Made in the Mountains", blurb: "Featuring the work of local artists Clare Walker Leslie, Johno Landsman, Samantha Sheehan, Phil Bobrow, Meg Reinhold and Clayton Anderson. Music by Granville Daze! (The music is still to be confirmed. Leave it off for now, but hopefully, I'll know soon.)", time: "Sunday, Sept. 10 at 4pm"},
+    {title: "Story Hour for Kids Kick-off! ", blurb: "Stories, songs, games and snacks for small folk and their caregivers. Register to get free children’s books sent directly to your home through  Dolly Parton’s Imagination Library. ", time: "Sunday, Sept. 24 at 1pm"},
+    {title: "A Celebration of Granville History", blurb: "Watch “A Hill Farmer’s Story” a short documentary film based on the diaries of early 20th century Granville residents. Sign up for our Oral History project and share a story of your own!", time: "Sunday, Oct. 15 at 7pm"}
+  ])
 
   useEffect(() => {
     let timeoutID = setInterval(() => {
@@ -54,7 +58,11 @@ function Home(props) {
         </div>
         <div className="event-display">
           {announcements.map((announce, i) => {
-            return <div key={i}></div>
+            return <div key={i} className="event-item">
+              <h3>{announce.title}</h3>
+              <p>{announce.blurb}</p>
+              <p><b>{announce.time}</b></p>
+            </div>
           })}
         </div>
         <Quote quote={dispQuote} />
