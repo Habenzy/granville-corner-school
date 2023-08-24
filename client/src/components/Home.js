@@ -47,14 +47,14 @@ function Home(props) {
     <div>
       <div id="home-body">
         <div id="cover">
-          <div id="mission-statement">
+          {/* <div id="mission-statement">
             <p>
               The Corner School Resource Center of Granville is dedicated to the
               preservation of the region's unique natural and cultural history,
               and the creation of a learning center that connects Granville to
               the wider world in the historic Corner School building.
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="event-display">
           {announcements.map((announce, i) => {
