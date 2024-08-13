@@ -34,8 +34,9 @@ function Home(props) {
     "Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B."
   );
   const [announcements, setAnnouncements] = useState([
-    {title: "Family Nature Hunts", blurb: "Renowned author and naturalist, Clare Walker Leslie, leads two fun and informative sessions that help us see and record the wild world all around us. You’ll be amazed at how many critters and plants make their home near the schoolhouse and how their lives are connected to our own! $10 suggested donation per family. Everybody's welcome! For more information and to register, email vtcornerschool@gmail.com", time: "Thursday, July 18, 2024 10a - noon & Wednesday, Aug 7, 2024 4p -6p"},
-    {title: "Memoir Writing", blurb: "Discover why we should tell our own stories and the best forms for doing so, both for an audience and personal enrichment. Award winning writer/educator Kate Youngdahl-Stauss, whose work has appeared on PBS, History and National Geographic, leads a five part course for young adults through super seniors. $100. Scholarships available. For more information and to register, email vtcornerschool@gmail.com", time: "Thursdays, July 11, 2024 through August 8, 2024 5p - 7p"}
+    {title: "", blurb: "Thanks to Vermont Humanities for sponsoring the Corner School's Summer Happenings. We've had great response for all of the programs run so far including The Magic Toy Box Camp with Tracy Martin Nature Journaling with Clare Leslie Walker Memoir Writing with Kate Youngdahl-Stauss. Still to Come: The Mini-Mural Workshop with Meg Reinhold on August 23 & 24! For more information about our programs email vtcornerschool@gmail.com", time: ""},
+    {title: 'The Second Annual "Made in the Mountains" Art Show', blurb: `featuring local painters, photographers and glassworkers including...
+      Phil Bobrow, Michael Egan, Pim Volpi, Peter Hourihan, Christian Jaquith, Clare Walker Leslie, Sue Leppla, Rhoda Stockwell, Brad Winn, and Marnie Wikel.`, time: "Opening Reception: Sunday, Sept. 1, 4-6 pm. Light Refreshments Everybody is welcome!"}
   ]);
 
   useEffect(() => {
