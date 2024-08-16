@@ -34,7 +34,7 @@ function Home(props) {
     "Larry sold me a parcel. Started building in 1966. Every nail, every wire, I put in.  -Fritz B."
   );
   const [announcements, setAnnouncements] = useState([
-    {title: "", blurb: "Thanks to Vermont Humanities for sponsoring the Corner School's Summer Happenings. We've had great response for all of the programs run so far including The Magic Toy Box Camp with Tracy Martin Nature Journaling with Clare Leslie Walker Memoir Writing with Kate Youngdahl-Stauss. Still to Come: The Mini-Mural Workshop with Meg Reinhold on August 23 & 24! For more information about our programs email vtcornerschool@gmail.com", time: ""},
+    {title: "", blurb: "Thanks to Vermont Humanities for sponsoring the Corner School's Summer Happenings. We've had great response for all of the programs run so far including The Magic Toy Box Camp with Tracy Martin, Nature Journaling with Clare Leslie Walker, and Memoir Writing with Kate Youngdahl-Stauss. Still to Come: The Mini-Mural Workshop with Meg Reinhold on August 23 & 24! For more information about our programs email vtcornerschool@gmail.com", time: ""},
     {title: 'The Second Annual "Made in the Mountains" Art Show', blurb: `featuring local painters, photographers and glassworkers including...
       Phil Bobrow, Michael Egan, Pim Volpi, Peter Hourihan, Christian Jaquith, Clare Walker Leslie, Sue Leppla, Rhoda Stockwell, Brad Winn, and Marnie Wikel.`, time: "Opening Reception: Sunday, Sept. 1, 4-6 pm. Light Refreshments Everybody is welcome!"}
   ]);
