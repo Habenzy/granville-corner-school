@@ -129,7 +129,8 @@ export default function About(props) {
           <li>Diane Eramo, Treasurer</li>
           <li>Kate Youngdahl-Stauss, Secretary</li>
           <li>Michael Eramo, Director</li>
-          <li>Clare Walker Leslie, Director</li>
+          <li>Mike Mathes, Director</li>
+          <li>Pim Volpi, Director</li>
         </ul>
       </div>
     </div>
