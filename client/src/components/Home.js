@@ -36,8 +36,8 @@ function Home(props) {
   const [announcements, setAnnouncements] = useState([
     {title: "", blurb: 'The Corner School has received a prestigious award from The Preservation Trust of Vermont for "transforming an historic school building into a generative public space." To find out more about the Preservation Trust and to see the film they produced about our project, visit https://ptvermont.org/granville-corner-school-resource-center-granville-vt-2024-preservation-award/', time: ""},
     {title: 'Mystery Movie Club', blurb: `Announcing the Third Thursday Mystery Movie Club: 
-Join special guest hosts from the community as they share a favorite film at the Corner School. Admission is free. Soup and bread is available for purchase. Doors open at 4:45. Fun for the whole family!
-Which movie is shown is a mystery, but it's not necessarily a "mystery" movie! `, time: ""},
+Join special guest hosts from the community as they share a favorite film at the Corner School. Admission is free. Dinner by donation. Doors open at 5:30 movie at 6. Fun for the whole family!
+The movie's title is a mystery, but it's not necessarily a "mystery" movie! `, time: ""},
 {title: '', blurb: `The Corner School has received a matching grant from the Vermont Department of Historic Preservation to replace our leaky roof! A new roof will also allow us to finish insulating the building for year round use. Be part of the change! Donate today in support of this next step in preserving our beautiful one-room schoolhouse.`, time: ""}
   ]);
 
