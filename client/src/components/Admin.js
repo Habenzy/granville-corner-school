@@ -421,6 +421,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtOneTitle(evt.target.value);
             }}
+            placeholder="Title (optional)"
           />
           <input
             type="text"
@@ -429,6 +430,8 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtOneBlurb(evt.target.value);
             }}
+            placeholder="Announcement (required)"
+            required="true"
           />
           <input
             type="text"
@@ -437,6 +440,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtOneTime(evt.target.value);
             }}
+            placeholder="Date/Time (optional)"
           />
           <br></br>
           <input
