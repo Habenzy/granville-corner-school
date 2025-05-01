@@ -258,9 +258,9 @@ export default function Admin(props) {
       time: evtThreeTime,
     };
 
-    setDoc(doc(db, "events", "one"), evtObjOne);
-    setDoc(doc(db, "events", "two"), evtObjTwo);
-    setDoc(doc(db, "events", "three"), evtObjThree);
+    setDoc(doc(db, "announcements", "one"), evtObjOne);
+    setDoc(doc(db, "announcements", "two"), evtObjTwo);
+    setDoc(doc(db, "announcements", "three"), evtObjThree);
   }
 
   function createQuote() {
@@ -414,6 +414,7 @@ export default function Admin(props) {
             updateEvts();
           }}
         >
+          <h3>Event One (Far Left)</h3>
           <input
             type="text"
             name="titleOne"
@@ -443,6 +444,7 @@ export default function Admin(props) {
             placeholder="Date/Time (optional)"
           />
           <br></br>
+          <h3>Event Two (Center)</h3>
           <input
             type="text"
             name="titleTwo"
@@ -468,6 +470,7 @@ export default function Admin(props) {
             }}
           />
           <br></br>
+          <h3>Event Three (Far Right)</h3>
           <input
             type="text"
             name="titleThree"

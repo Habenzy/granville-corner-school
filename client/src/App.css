@@ -167,6 +167,12 @@ code {
   max-width: 25vw;
   margin: 10px 0;
 }
+
+@media screen and (max-width: 400px) {
+  .event-display {
+    flex-direction: column;
+  }
+}
 /* --------------Announcement Box---------------- */
 
 #event-container {
