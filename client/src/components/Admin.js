@@ -158,6 +158,7 @@ export default function Admin(props) {
   const [evtOneTime, setEvtOneTime] = useState("");
   const [evtTwoTime, setEvtTwoTime] = useState("");
   const [evtThreeTime, setEvtThreeTime] = useState("");
+  const [announcements, setAnnouncements] = useState([])
 
   //log in/out
   const [email, setEmail] = useState("");
@@ -171,6 +172,27 @@ export default function Admin(props) {
       }
     });
   });
+
+  useEffect(() => {
+    getDocs(query(collection(db, 'announcements'))).then((querySnapshot) => {
+      let announcements = [];
+      querySnapshot.forEach((doc) => {
+        announcements.push(doc.data());
+      });
+      console.log(announcements)
+      setAnnouncements(announcements)
+      setEvtOneBlurb(announcements[0].blurb)
+      setEvtOneTitle(announcements[0].title)
+      setEvtOneTime(announcements[0].time)
+      setEvtTwoBlurb(announcements[1].blurb)
+      setEvtTwoTitle(announcements[1].title)
+      setEvtTwoTime(announcements[1].time)
+      setEvtThreeBlurb(announcements[2].blurb)
+      setEvtThreeTitle(announcements[2].title)
+      setEvtThreeTime(announcements[2].time)
+    })
+    .catch(err => console.log(err.message));
+  }, []);
 
   function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
@@ -444,7 +466,7 @@ export default function Admin(props) {
             placeholder="Date/Time (optional)"
           />
           <br></br>
-          <h3>Event Two (Center)</h3>
+          <h3>Event Two (Far Right)</h3>
           <input
             type="text"
             name="titleTwo"
@@ -452,6 +474,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtTwoTitle(evt.target.value);
             }}
+            placeholder="Title (optional)"
           />
           <input
             type="text"
@@ -460,6 +483,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtTwoBlurb(evt.target.value);
             }}
+            placeholder="Announcement (required)"
           />
           <input
             type="text"
@@ -468,9 +492,10 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtTwoTime(evt.target.value);
             }}
+            placeholder="Date/Time (optional)"
           />
           <br></br>
-          <h3>Event Three (Far Right)</h3>
+          <h3>Event Three (Center)</h3>
           <input
             type="text"
             name="titleThree"
@@ -478,6 +503,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtThreeTitle(evt.target.value);
             }}
+            placeholder="Title (optional)"
           />
           <input
             type="text"
@@ -486,6 +512,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtThreeBlurb(evt.target.value);
             }}
+            placeholder="Announcement (required)"
           />
           <input
             type="text"
@@ -494,6 +521,7 @@ export default function Admin(props) {
             onChange={(evt) => {
               setEvtThreeTime(evt.target.value);
             }}
+            placeholder="Date/Time (optional)"
           />
           <input type="submit" value="Update Events" />
         </form>
