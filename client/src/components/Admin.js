@@ -19,8 +19,7 @@ function EditEntry(props) {
   const [editName, setEditName] = useState("");
   const [editBlurb, setEditBlurb] = useState("");
   const [editDate, setEditDate] = useState("");
-console.log("names", editName, props.name)
-console.log('dates')
+
   function updateGalleryEntry() {
     const imageDoc = doc(db, props.gallery, props.name);
     updateDoc(imageDoc, {
@@ -146,6 +145,17 @@ export default function Admin(props) {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
   const [date, setDate] = useState("");
+  //update homepage
+  const [homeImg, setHomeImg] = useState("")
+  const [evtOneBlurb, setEvtOneBlurb] = useState("")
+  const [evtTwoBlurb, setEvtTwoBlurb] = useState("")
+  const [evtThreeBlurb, setEvtThreeBlurb] = useState("")
+  const [evtOneTitle, setEvtOneTitle] = useState("")
+  const [evtTwoTitle, setEvtTwoTitle] = useState("")
+  const [evtThreeTitle, setEvtThreeTitle] = useState("")
+  const [evtOneDate, setEvtOneDate] = useState("")
+  const [evtTwoDate, setEvtTwoDate] = useState("")
+  const [evtThreeDate, setEvtThreeDate] = useState("")
 
   //log in/out
   const [email, setEmail] = useState("");
@@ -160,7 +170,7 @@ export default function Admin(props) {
     });
   });
 
-  async function createGalleryEntry() {
+  function createGalleryEntry() {
     let galleryRef = ref(storage, gallery);
     console.log(galleryRef);
     let imgRef = ref(galleryRef, imageFile.name);
@@ -197,6 +207,68 @@ export default function Admin(props) {
         });
       }
     );
+  }
+
+  function newHomeImg() {
+    let galleryRef = ref(storage, "home");
+    console.log(galleryRef);
+    let imgRef = ref(galleryRef, homeImg.name);
+    console.log(imgRef);
+    const uploadTask = uploadBytesResumable(imgRef, homeImg);
+
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot);
+      },
+      (err) => {
+        //catches the errors
+        console.log(err);
+      },
+      () => {
+        // gets the functions from storage references the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+
+          console.log(db, "homeImages");
+          setDoc(doc(db, "homeImages"), downloadURL);
+
+        });
+      }
+    );
+  }
+
+  function updateEvt(evtNum) {
+
+    let evtObj
+
+    switch (evtNum) {
+      case "One" :
+        evtObj = {
+          title: evtOneTitle,
+          blurb: evtOneBlurb,
+          date: evtOneDate
+        }
+        break;
+        case "Two" :
+        evtObj = {
+          title: evtTwoTitle,
+          blurb: evtTwoBlurb,
+          date: evtTwoDate
+        }
+        break;
+        case "Three" :
+        evtObj = {
+          title: evtThreeTitle,
+          blurb: evtThreeBlurb,
+          date: evtThreeDate
+        }
+        break;
+        default: 
+          console.error("Bob fucked something up")
+    }
+
   }
 
   function createQuote() {
@@ -326,6 +398,23 @@ export default function Admin(props) {
         />
       </form> */}
         <ChooseEdits />
+        <form onSubmit={(evt) => {
+            evt.preventDefault();
+            newHomeImg();
+          }}>
+            <input
+            onChange={(evt) => {
+              setHomeImg(evt.target.files[0]);
+            }}
+            required={true}
+            name="image"
+            type="file"
+            accept="image/png, image/jpeg"
+          />
+          <br></br>
+          <input type="submit" value="Update Cover Image" />
+
+        </form>
       </div>
       <button
         onClick={(evt) => {

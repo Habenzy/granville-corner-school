@@ -59,7 +59,7 @@ The movie's title is a mystery, but it's not necessarily a "mystery" movie! `, t
             <p>
               The Corner School Resource Center of Granville is dedicated to the
               preservation of the region's unique natural and cultural history,
-              and the creation of a learning center that connects Granville to
+              and the operation of a learning center that connects Granville to
               the wider world in the historic Corner School building.
             </p>
           </div>
