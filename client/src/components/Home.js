@@ -65,7 +65,8 @@ The movie's title is a mystery, but it's not necessarily a "mystery" movie! `, t
           </div>
         </div>
         <div className="event-display">
-          {announcements.map((announce, i) => {
+          {//announcments come in as array
+          announcements.map((announce, i) => {
             return (
               <div key={i} className="event-item">
                 <h3>{announce.title}</h3>

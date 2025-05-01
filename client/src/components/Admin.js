@@ -26,11 +26,13 @@ function EditEntry(props) {
       name: editName || props.name,
       blurb: editBlurb || props.blurb,
       date: editDate || props.date,
-    }).then(res => {
-      alert("update successful")
-    }).catch(err => {
-      alert(`update failed: ${err.message}`)
-    });
+    })
+      .then((res) => {
+        alert("update successful");
+      })
+      .catch((err) => {
+        alert(`update failed: ${err.message}`);
+      });
   }
 
   return (
@@ -146,16 +148,16 @@ export default function Admin(props) {
   const [author, setAuthor] = useState("");
   const [date, setDate] = useState("");
   //update homepage
-  const [homeImg, setHomeImg] = useState("")
-  const [evtOneBlurb, setEvtOneBlurb] = useState("")
-  const [evtTwoBlurb, setEvtTwoBlurb] = useState("")
-  const [evtThreeBlurb, setEvtThreeBlurb] = useState("")
-  const [evtOneTitle, setEvtOneTitle] = useState("")
-  const [evtTwoTitle, setEvtTwoTitle] = useState("")
-  const [evtThreeTitle, setEvtThreeTitle] = useState("")
-  const [evtOneDate, setEvtOneDate] = useState("")
-  const [evtTwoDate, setEvtTwoDate] = useState("")
-  const [evtThreeDate, setEvtThreeDate] = useState("")
+  const [homeImg, setHomeImg] = useState("");
+  const [evtOneBlurb, setEvtOneBlurb] = useState("");
+  const [evtTwoBlurb, setEvtTwoBlurb] = useState("");
+  const [evtThreeBlurb, setEvtThreeBlurb] = useState("");
+  const [evtOneTitle, setEvtOneTitle] = useState("");
+  const [evtTwoTitle, setEvtTwoTitle] = useState("");
+  const [evtThreeTitle, setEvtThreeTitle] = useState("");
+  const [evtOneTime, setEvtOneTime] = useState("");
+  const [evtTwoTime, setEvtTwoTime] = useState("");
+  const [evtThreeTime, setEvtThreeTime] = useState("");
 
   //log in/out
   const [email, setEmail] = useState("");
@@ -230,45 +232,35 @@ export default function Admin(props) {
         // gets the functions from storage references the image storage in firebase by the children
         // gets the download url then sets the image from firebase as the value for the imgUrl key:
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-
           console.log(db, "homeImages");
           setDoc(doc(db, "homeImages"), downloadURL);
-
         });
       }
     );
   }
 
-  function updateEvt(evtNum) {
+  function updateEvts() {
+    let evtObjOne = {
+      title: evtOneTitle,
+      blurb: evtOneBlurb,
+      time: evtOneTime,
+    };
 
-    let evtObj
+    let evtObjTwo = {
+      title: evtTwoTitle,
+      blurb: evtTwoBlurb,
+      time: evtTwoTime,
+    };
 
-    switch (evtNum) {
-      case "One" :
-        evtObj = {
-          title: evtOneTitle,
-          blurb: evtOneBlurb,
-          date: evtOneDate
-        }
-        break;
-        case "Two" :
-        evtObj = {
-          title: evtTwoTitle,
-          blurb: evtTwoBlurb,
-          date: evtTwoDate
-        }
-        break;
-        case "Three" :
-        evtObj = {
-          title: evtThreeTitle,
-          blurb: evtThreeBlurb,
-          date: evtThreeDate
-        }
-        break;
-        default: 
-          console.error("Bob fucked something up")
-    }
+    let evtObjThree = {
+      title: evtThreeTitle,
+      blurb: evtThreeBlurb,
+      time: evtThreeTime,
+    };
 
+    setDoc(doc(db, "events", "one"), evtObjOne);
+    setDoc(doc(db, "events", "two"), evtObjTwo);
+    setDoc(doc(db, "events", "three"), evtObjThree);
   }
 
   function createQuote() {
@@ -389,7 +381,7 @@ export default function Admin(props) {
         />
         <input
           type="text"
-          name="quote"
+          name="author"
           placeholder="Enter an author"
           value={author}
           onChange={(evt) => {
@@ -398,11 +390,13 @@ export default function Admin(props) {
         />
       </form> */}
         <ChooseEdits />
-        <form onSubmit={(evt) => {
+        <form
+          onSubmit={(evt) => {
             evt.preventDefault();
             newHomeImg();
-          }}>
-            <input
+          }}
+        >
+          <input
             onChange={(evt) => {
               setHomeImg(evt.target.files[0]);
             }}
@@ -413,7 +407,88 @@ export default function Admin(props) {
           />
           <br></br>
           <input type="submit" value="Update Cover Image" />
-
+        </form>
+        <form
+          onSubmit={(evt) => {
+            evt.preventDefault();
+            updateEvts();
+          }}
+        >
+          <input
+            type="text"
+            name="titleOne"
+            value={evtOneTitle}
+            onChange={(evt) => {
+              setEvtOneTitle(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="blurbOne"
+            value={evtOneBlurb}
+            onChange={(evt) => {
+              setEvtOneBlurb(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="timeOne"
+            value={evtOneTime}
+            onChange={(evt) => {
+              setEvtOneTime(evt.target.value);
+            }}
+          />
+          <br></br>
+          <input
+            type="text"
+            name="titleTwo"
+            value={evtTwoTitle}
+            onChange={(evt) => {
+              setEvtTwoTitle(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="blurbTwo"
+            value={evtTwoBlurb}
+            onChange={(evt) => {
+              setEvtTwoBlurb(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="timeTwo"
+            value={evtTwoTime}
+            onChange={(evt) => {
+              setEvtTwoTime(evt.target.value);
+            }}
+          />
+          <br></br>
+          <input
+            type="text"
+            name="titleThree"
+            value={evtThreeTitle}
+            onChange={(evt) => {
+              setEvtThreeTitle(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="blurbThree"
+            value={evtThreeBlurb}
+            onChange={(evt) => {
+              setEvtThreeBlurb(evt.target.value);
+            }}
+          />
+          <input
+            type="text"
+            name="timeThree"
+            value={evtThreeTime}
+            onChange={(evt) => {
+              setEvtThreeTime(evt.target.value);
+            }}
+          />
+          <input type="submit" value="Update Events" />
         </form>
       </div>
       <button
